@@ -1,5 +1,9 @@
+# sqlalchemy é a lib que comunica com o banco via ORM,
+# então aqui vc importa os tipos de dados do MySql que vc
+# vai usar e as columas pra declarar os atributos de uma
+# entidade
 from sqlalchemy import Boolean, Column, String, Date, Integer
-from database import Base
+from database import Base # isso é a variável que criamos em database.py
 
 class Profissional(Base):
     __tablename__ = 'profissionais'
