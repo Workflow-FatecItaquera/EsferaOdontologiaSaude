@@ -6,6 +6,7 @@ from typing import Annotated
 import model.Profissional
 from database import engine, SessionLocal
 from sqlalchemy.orm import Session
+from routes.places import getReviews
 
 from routes.api import testar, cadastro
 
@@ -20,6 +21,10 @@ templates = Jinja2Templates(directory="view")
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/teste/maps")
+def maps():
+    return getReviews()
 
 # Rota API
 @app.get("/api/teste")
