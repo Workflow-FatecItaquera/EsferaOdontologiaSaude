@@ -133,7 +133,7 @@ body {
 
 #entryBanner {
     position: relative;
-    background: url(/EsferaOdontologiaSaude/view/images/Background1.png);
+    background: url(/view/images/Background1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -147,7 +147,7 @@ body {
     width: 100%;
     display: block;
 
-    transform: scaleY(-1);
+    transform: scaleY(-1) translateY(-2px);
     transform-origin: center;
 }
 
