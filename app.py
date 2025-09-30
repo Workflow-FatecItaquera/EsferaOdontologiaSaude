@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request, HTTPException, Depends, status
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from typing import Annotated
@@ -15,6 +16,7 @@ model.Profissional.Base.metadata.create_all(bind=engine)
 
 # Páginas HTML
 templates = Jinja2Templates(directory="view")
+app.mount("/view", StaticFiles(directory="view"), name="view")
 
 # Rota Web
 @app.get("/", response_class=HTMLResponse)
