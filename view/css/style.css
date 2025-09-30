@@ -320,3 +320,178 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
 }
+@import url(./bootstrap.min.css);
+
+@font-face {
+    font-family: 'Montserrat-Arabic';
+    src: url('../fonts/Montserrat-Arabic-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-Arabic';
+    src: url('../fonts/Montserrat-Arabic-Regular.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-Arabic';
+    src: url('../fonts/Montserrat-Arabic-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-Arabic';
+    src: url('../fonts/Montserrat-Arabic-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HalfbreD';
+    src: url('../fonts/HalfbreD.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+:root {
+    /* Cores */
+    --primary-white: #fff;
+    --secondary-white: #f6f6f6;
+
+    --primary-gray: #dbdbdb;
+    --secondary-gray: #9d9a9b;
+    --blueish-gray: #8391a2;
+
+    --primary-blue: #103560;
+    --secondary-blue: #22364d;
+    --terciary-blue: #0B1725;
+
+    /* Fontes */
+    --font-main: 'montserrat-Arabic', sans-serif;
+    --font-alt: 'HalfbreD', sans-serif;
+
+    /* Transições */
+    --transition-principal: all .3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    /* Animações */
+    --slide-up: translateY(-3px);
+    --slide-right: translate(3px);
+    --expand: scale(1.05);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--primary-white);
+}
+
+#navBar {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    background-color: var(--primary-white);
+}
+
+#navBar figure img {
+    height: 6rem;
+    margin: 1rem 4rem;
+    cursor: pointer;
+}
+
+#navBarList {
+    list-style: none;
+    padding: 0;
+    margin: 0 4rem 0 0;
+    gap: 2rem;
+}
+
+.navBarItems:last-child {
+    background-color: var(--primary-blue);
+    padding: .6rem 1.2rem;
+    border-radius: .8rem;
+}
+
+.navBarItems a {
+    position: relative;
+    padding-bottom: .4rem;
+    text-decoration: none;
+    color: var(--terciary-blue);
+}
+
+.navBarItems:last-child a{
+    color: var(--primary-white);
+}
+
+.navBarItems a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-blue);
+    border-radius: 200vh;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 300ms ease-in-out;
+}
+
+.navBarItems a:hover::after {
+    transform: scaleX(1);
+}
+
+#entryBanner {
+    position: relative;
+    background: url(/view/images/Background1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#entryBanner svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+
+    transform: scaleY(-1) translateY(-2px);
+    transform-origin: center;
+}
+
+#entryBanner div {
+    width: 100%;
+    height: 78vh;
+    padding: 2rem 8rem 12rem 8rem;
+    font-size: 1.4rem;
+    color: var(--primary-white);
+    gap: 4rem;
+}
+
+#entryBanner div p {
+    width: 50%;
+}
+
+#entryBanner div a {
+    color: var(--primary-blue);
+    background-color: var(--primary-white);
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: .6rem 3.2rem .6rem 1.2rem;
+    border-radius: .8rem;
+    border-bottom-right-radius: 4rem;
+}
