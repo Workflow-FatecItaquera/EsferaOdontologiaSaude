@@ -242,7 +242,11 @@ body {
 .teamDescription {
   margin: 2rem 4rem;
   padding: 2rem 16rem 2rem 6rem;
-  background: linear-gradient(to right, var(--terciary-blue), var(--primary-blue));
+  background: linear-gradient(
+    to right,
+    var(--terciary-blue),
+    var(--primary-blue)
+  );
   border-radius: 2rem;
   color: var(--primary-white);
   width: 75%;
@@ -325,10 +329,9 @@ body {
   overflow: hidden;
 }
 
-
 #reviews {
   display: flex;
-  gap: 4rem; 
+  gap: 4rem;
   overflow-x: auto;
   padding: 2rem 4rem 2rem 4rem;
   background: #f1f1f1;
@@ -358,8 +361,8 @@ body {
 .reviewCard h3 {
   font-size: 1rem;
   font-weight: 300;
-  color: var(--secondary-dark);
-  margin-bottom: .6rem;
+  color: var(--terciary-blue);
+  margin-bottom: 0.6rem;
 }
 
 .reviewerInfo {
@@ -374,7 +377,7 @@ body {
   object-fit: cover;
 }
 
-.reviewerTexts { 
+.reviewerTexts {
   align-self: center;
   justify-self: center;
 }
@@ -404,13 +407,143 @@ body {
   object-fit: contain;
 }
 
-/* Estrelinhas bonitas */
 .stars {
   display: flex;
   gap: 0.25rem;
 }
 
 .stars span {
-  color: #FFD700; /* dourado */
+  color: #ffd700;
   font-size: 1.1rem;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0 6rem 4rem;
+  color: var(--primary-white);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--secondary-blue) 35%,
+    var(--terciary-blue)
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+footer .mapImage {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.map-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 0rem;
+  color: var(--primary-white);
+  font-size: .8rem;
+  font-weight: 300;
+  line-height: 1.4;
+  background-color: var(--secondary-blue);
+  padding: .6rem 2rem .6rem 4rem;
+  border-top-right-radius: .8rem;
+  border-bottom-right-radius: .8rem;
+}
+
+.map-info div p {
+  margin: 0;
+}
+
+.map-info img {
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  left: .2rem;
+  top: -.8rem;
+  z-index: 1;
+}
+
+.footer-content {
+  width: 65%;
+  gap: 4rem;
+  padding-left: 4rem;
+}
+
+.footer-section {
+  gap: 2rem;
+}
+
+.footer-section li {
+  list-style: none;
+}
+
+.footer-section li a {
+  color: var(--primary-white);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: .4rem;
+}
+
+.footer-section li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary-white);
+  border-radius: 200vh;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 300ms ease-in-out;
+}
+
+.footer-section li a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-section h4 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.footer-logo {
+  border-left: var(--primary-white) 2px solid;
+  padding: 1rem 2rem;
+}
+
+.footer-logo img {
+  width: 80%;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo .socials {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.footer-logo .socials a img {
+  height: 34px;
+  object-fit: contain;
+  margin-right: 1rem;
+  filter: brightness(0) invert(1);
+  transition: var(--transition-principal);
+}
+
+.footer-bottom {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-weight: 200;
+  font-size: .9rem;
 }
