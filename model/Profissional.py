@@ -2,7 +2,7 @@
 # então aqui vc importa os tipos de dados do MySql que vc
 # vai usar e as columas pra declarar os atributos de uma
 # entidade
-from sqlalchemy import Boolean, Column, String, Date, Integer
+from sqlalchemy import Boolean, Column, String, Date, Integer, Text
 from database import Base # isso é a variável que criamos em database.py
 
 class Profissional(Base):
@@ -16,7 +16,7 @@ class Profissional(Base):
     estadoCivil = Column(String(20))
     cro = Column(String(50),unique=True)
     numero = Column(Integer)
-    fotoPerfil = Column(String(1000000000))
+    fotoPerfil = Column(Text)
     cpf = Column(String(20), unique=True)
     rg = Column(String(20),unique=True)
     username = Column(String(100), unique=True)
