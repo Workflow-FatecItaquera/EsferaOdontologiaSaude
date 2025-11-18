@@ -446,13 +446,13 @@ footer .mapImage {
   bottom: 2rem;
   left: 0rem;
   color: var(--primary-white);
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 300;
   line-height: 1.4;
   background-color: var(--secondary-blue);
-  padding: .6rem 2rem .6rem 4rem;
-  border-top-right-radius: .8rem;
-  border-bottom-right-radius: .8rem;
+  padding: 0.6rem 2rem 0.6rem 4rem;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
 }
 
 .map-info div p {
@@ -463,8 +463,8 @@ footer .mapImage {
   position: absolute;
   height: 100%;
   aspect-ratio: 1 / 1;
-  left: .2rem;
-  top: -.8rem;
+  left: 0.2rem;
+  top: -0.8rem;
   z-index: 1;
 }
 
@@ -486,7 +486,7 @@ footer .mapImage {
   color: var(--primary-white);
   text-decoration: none;
   position: relative;
-  padding-bottom: .4rem;
+  padding-bottom: 0.4rem;
 }
 
 .footer-section li a::after {
@@ -545,5 +545,83 @@ footer .mapImage {
 .footer-bottom p {
   margin: 0;
   font-weight: 200;
-  font-size: .9rem;
+  font-size: 0.9rem;
+}
+
+
+
+
+/* DASHBOARD */
+
+.dashboard-wrapper {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 90px;
+  background: linear-gradient(180deg, #0f203a, #243b55);
+  color: #fff;
+}
+
+.sidebar-logo {
+  width: 50px;
+}
+
+.sidebar-nav a {
+  font-size: 1.8rem;
+  color: #cbd5e1;
+  transition: 0.3s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav .active {
+  color: #fff;
+}
+
+.topbar {
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.user-circle {
+  width: 40px;
+  height: 40px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.appointments-section {
+  background: #f5f7fa;
+}
+
+.appointment-card {
+  background: #fff;
+  min-width: 180px;
+  border: 1px solid #e2e8f0;
+}
+
+.finance-box {
+  background: #f5f7fa;
+}
+
+.employees-box {
+  background: #f5f7fa;
+}
+
+.employee-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.employee-card .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
