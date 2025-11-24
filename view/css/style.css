@@ -188,11 +188,9 @@ body {
 
 .texts h1 {
   font-size: 2.4rem;
-  background: linear-gradient(
-    to right,
-    var(--terciary-blue),
-    var(--saturated-blue)
-  );
+  background: linear-gradient(to right,
+      var(--terciary-blue),
+      var(--saturated-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -242,11 +240,9 @@ body {
 .teamDescription {
   margin: 2rem 4rem;
   padding: 2rem 16rem 2rem 6rem;
-  background: linear-gradient(
-    to right,
-    var(--terciary-blue),
-    var(--primary-blue)
-  );
+  background: linear-gradient(to right,
+      var(--terciary-blue),
+      var(--primary-blue));
   border-radius: 2rem;
   color: var(--primary-white);
   width: 75%;
@@ -266,6 +262,7 @@ body {
 .teammateCard:first-child {
   margin-left: 10rem;
 }
+
 .teammateCard:last-child {
   margin-right: 4rem;
 }
@@ -422,12 +419,10 @@ footer {
   width: 100%;
   padding: 6rem 0 6rem 4rem;
   color: var(--primary-white);
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--secondary-blue) 35%,
-    var(--terciary-blue)
-  );
+  background: linear-gradient(to right,
+      transparent 0%,
+      var(--secondary-blue) 35%,
+      var(--terciary-blue));
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -551,20 +546,49 @@ footer .mapImage {
 
 
 
-/* DASHBOARD */
 
+/* DASHBOARD */
 .dashboard-wrapper {
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container-fluid {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .sidebar {
-  width: 90px;
-  background: linear-gradient(180deg, #0f203a, #243b55);
+  width: 8rem;
+  margin: 2rem 2rem 2rem 0;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background: linear-gradient(180deg, #22364D, #0B1725);
   color: #fff;
 }
 
 .sidebar-logo {
-  width: 50px;
+  width: 5rem;
+  margin: 1rem 0;
+  filter: brightness(0) invert(1);
+}
+
+.sidebar-nav {
+  height: 100%;
+  padding: 2rem 0;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .sidebar-nav a {
@@ -573,14 +597,22 @@ footer .mapImage {
   transition: 0.3s;
 }
 
+.bi img {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
+}
+
 .sidebar-nav a:hover,
 .sidebar-nav .active {
-  color: #fff;
+  transform: scale(1.2);
 }
 
 .topbar {
-  border-bottom: 1px solid #e5e7eb;
-  background: #fff;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: linear-gradient(to right, #00000000, #0B1725) bottom / 100% 1px no-repeat;
+  width: 100%;
+  flex-shrink: 0;          /* impede de esmagar */
 }
 
 .user-circle {
@@ -610,6 +642,8 @@ footer .mapImage {
 
 .employees-box {
   background: #f5f7fa;
+  overflow-y: auto;       /* perfeito: scroll só nessa coluna */
+  min-height: 0;
 }
 
 .employee-card {
