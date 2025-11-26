@@ -188,9 +188,11 @@ body {
 
 .texts h1 {
   font-size: 2.4rem;
-  background: linear-gradient(to right,
-      var(--terciary-blue),
-      var(--saturated-blue));
+  background: linear-gradient(
+    to right,
+    var(--terciary-blue),
+    var(--saturated-blue)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -240,9 +242,11 @@ body {
 .teamDescription {
   margin: 2rem 4rem;
   padding: 2rem 16rem 2rem 6rem;
-  background: linear-gradient(to right,
-      var(--terciary-blue),
-      var(--primary-blue));
+  background: linear-gradient(
+    to right,
+    var(--terciary-blue),
+    var(--primary-blue)
+  );
   border-radius: 2rem;
   color: var(--primary-white);
   width: 75%;
@@ -419,10 +423,12 @@ footer {
   width: 100%;
   padding: 6rem 0 6rem 4rem;
   color: var(--primary-white);
-  background: linear-gradient(to right,
-      transparent 0%,
-      var(--secondary-blue) 35%,
-      var(--terciary-blue));
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--secondary-blue) 35%,
+    var(--terciary-blue)
+  );
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -543,15 +549,13 @@ footer .mapImage {
   font-size: 0.9rem;
 }
 
+/* ==== DASHBOARD ==== */
 
-
-
-
-/* DASHBOARD */
 .dashboard-wrapper {
   height: 100vh;
   display: flex;
   overflow: hidden;
+  background-color: var(--secondary-white);
 }
 
 .main-content {
@@ -559,29 +563,32 @@ footer .mapImage {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: var(--secondary-white);
 }
 
-.container-fluid {
+.content-area {
   flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sidebar {
   width: 8rem;
   margin: 2rem 2rem 2rem 0;
-  border-bottom-right-radius: 2rem;
-  border-top-right-radius: 2rem;
-  background: linear-gradient(180deg, #22364D, #0B1725);
-  color: #fff;
+  border-radius: 0 2rem 2rem 0;
+  background: linear-gradient(180deg, #22364d, #0b1725);
+  backdrop-filter: blur(4px);
+  box-shadow: 4px 0 14px rgba(0, 0, 0, 0.12);
 }
 
-.sidebar-logo {
-  width: 5rem;
-  margin: 1rem 0;
-  filter: brightness(0) invert(1);
+.sidebar-nav a:hover,
+.sidebar-nav .active {
+  transform: scale(1.22);
+  color: var(--primary-white);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 .sidebar-nav {
@@ -597,6 +604,12 @@ footer .mapImage {
   transition: 0.3s;
 }
 
+.sidebar-logo {
+  width: 5rem;
+  margin: 1rem 0;
+  filter: brightness(0) invert(1);
+}
+
 .bi img {
   width: 2.5rem;
   aspect-ratio: 1/1;
@@ -608,11 +621,13 @@ footer .mapImage {
 }
 
 .topbar {
-  border: 0;
-  border-bottom: 1px solid transparent;
-  background: linear-gradient(to right, #00000000, #0B1725) bottom / 100% 1px no-repeat;
-  width: 100%;
-  flex-shrink: 0;          /* impede de esmagar */
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  background: linear-gradient(to right, #0000, #0b1725) bottom / 100% 1px
+    no-repeat;
 }
 
 .user-circle {
@@ -627,35 +642,69 @@ footer .mapImage {
 }
 
 .appointments-section {
-  background: #f5f7fa;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  flex-shrink: 0;
+}
+
+.appointments-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.3rem;
 }
 
 .appointment-card {
-  background: #fff;
-  min-width: 180px;
-  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+  min-width: 14rem;
+  flex-shrink: 0;
+  border-radius: 0.8rem;
 }
 
-.finance-box {
-  background: #f5f7fa;
-}
-
-.employees-box {
-  background: #f5f7fa;
-  overflow-y: auto;       /* perfeito: scroll só nessa coluna */
+.grid-area {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 1.5rem;
   min-height: 0;
 }
 
-.employee-card {
+.card-area {
   background: #fff;
-  border: 1px solid #e2e8f0;
-  position: relative;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  overflow: auto;
 }
 
-.employee-card .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 8px;
+.card-area,
+.appointments-section {
+  background: var(--primary-white);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  transition: var(--transition-principal);
+}
+
+.card-area:hover,
+.appointments-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .grid-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 6rem;
+    margin: 1rem;
+  }
+
+  .content-area {
+    padding: 1rem;
+  }
 }

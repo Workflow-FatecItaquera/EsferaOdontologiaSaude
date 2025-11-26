@@ -1,132 +1,128 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Esfera Odontologia e Saúde</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esfera Odontologia e Saúde</title>
 
-        <link rel="stylesheet" href="/view/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/view/css/style.css">
+    <link rel="stylesheet" href="/view/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/view/css/style.css">
 
-        <link rel="icon" href="/view/images/logoEsferaIcon.png" type="image/x-icon">
-    </head>
+    <link rel="icon" href="/view/images/logoEsferaIcon.png" type="image/x-icon">
+</head>
 
-    <body>
+<body>
 
-        <div class="d-flex dashboard-wrapper">
+    <div class="d-flex dashboard-wrapper">
 
-            <aside class="sidebar d-flex flex-column align-items-center">
-                <div class="logo-box mt-3 mb-4">
-                    <img src="/view/images/logoEsferaIcon.png" class="sidebar-logo" alt="logo">
+        <aside class="sidebar d-flex flex-column align-items-center">
+            <div class="logo-box mt-3 mb-4">
+                <img src="/view/images/logoEsferaIcon.png" class="sidebar-logo" alt="logo">
+            </div>
+
+            <nav class="sidebar-nav d-flex flex-column gap-4">
+                <a href="#" class="sidebar-item active">
+                    <i class="bi bi-house"><img src="/view/images/Home.png" alt=""></i>
+                </a>
+                <a href="#">
+                    <i class="bi bi-calendar-event"><img src="/view/images/Calendar.png" alt=""></i>
+                </a>
+                <a href="#">
+                    <i class="bi bi-people"><img src="/view/images/Users.png" alt=""></i>
+                </a>
+                <a href="#">
+                    <i class="bi bi-cash-stack"><img src="/view/images/Financial.png" alt=""></i>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div class="text-end me-3">
+                    <small class="text-muted d-block">Recepcionista</small>
+                    <strong>Matheus Sobreira</strong>
                 </div>
+                <div class="user-circle">
+                    <i class="bi bi-person"></i>
+                </div>
+            </header>
 
-                <nav class="sidebar-nav d-flex flex-column gap-4">
-                    <a href="#" class="sidebar-item active">
-                        <i class="bi bi-house"><img src="/view/images/Home.png" alt=""></i>
-                    </a>
-                    <a href="#">
-                        <i class="bi bi-calendar-event"><img src="/view/images/Calendar.png" alt=""></i>
-                    </a>
-                    <a href="#">
-                        <i class="bi bi-people"><img src="/view/images/Users.png" alt=""></i>
-                    </a>
-                    <a href="#">
-                        <i class="bi bi-cash-stack"><img src="/view/images/Financial.png" alt=""></i>
-                    </a>
-                </nav>
-            </aside>
+            <div class="content-area">
 
-            <main class="main-content d-flex flex-column flex-grow-1">
-
-                <header class="topbar d-flex justify-content-end align-items-center px-3 py-3">
-                    <div class="text-end me-3">
-                        <small class="text-muted d-block">Recepcionista</small>
-                        <strong>Matheus Sobreira</strong>
+                <section class="appointments-section">
+                    <div class="d-flex justify-content-between mb-2">
+                        <h6 class="fw-bold">Próximos agendamentos</h6>
+                        <span class="text-muted">Novembro de 2025</span>
                     </div>
-                    <div class="user-circle">
-                        <i class="bi bi-person"></i>
-                    </div>
-                </header>
 
-                <div class="container-fluid mt-4">
-
-                    <section class="appointments-section p-3 rounded-3 mb-4">
-                        <div class="d-flex justify-content-between mb-2">
-                            <h6 class="fw-bold">Próximos agendamentos</h6>
-                            <span class="text-muted">Novembro de 2025</span>
+                    <div class="d-flex gap-3 overflow-auto appointments-scroll">
+                        <div class="appointment-card p-3 rounded">
+                            <small>03/11 • 10:00 - 11:30</small>
+                            <p class="mb-0 fw-bold">Dr. Marcelo</p>
+                            <p class="text-muted small mb-0">Paciente Rodrigo Oliveira</p>
                         </div>
 
-                        <div class="d-flex gap-3 overflow-auto appointments-scroll">
-                            <div class="appointment-card p-3 rounded">
-                                <small>03/11 • 10:00 - 11:30</small>
-                                <p class="mb-0 fw-bold">Dr. Marcelo</p>
-                                <p class="text-muted small mb-0">Paciente Rodrigo Oliveira</p>
-                            </div>
+                        <div class="appointment-card p-3 rounded">
+                            <small>03/11 • 12:45 - 13:30</small>
+                            <p class="fw-bold mb-0">Dr. Auzio Varella</p>
+                            <p class="text-muted small mb-0">Paciente Estillos Henrique</p>
+                        </div>
 
-                            <div class="appointment-card p-3 rounded">
-                                <small>03/11 • 12:45 - 13:30</small>
-                                <p class="fw-bold mb-0">Dr. Auzio Varella</p>
-                                <p class="text-muted small mb-0">Paciente Estillos Henrique</p>
-                            </div>
+                        <div class="appointment-card p-3 rounded">
+                            <small>04/11 • 09:00 - 09:30</small>
+                            <p class="fw-bold mb-0">Dr. Pedro F</p>
+                            <p class="text-muted small">Paciente Gustavo Rodrigues</p>
+                        </div>
 
-                            <div class="appointment-card p-3 rounded">
-                                <small>04/11 • 09:00 - 09:30</small>
-                                <p class="fw-bold mb-0">Dr. Pedro F</p>
-                                <p class="text-muted small">Paciente Gustavo Rodrigues</p>
-                            </div>
+                    </div>
+                </section>
+
+                <div class="grid-area">
+
+                    <section class="finance-box card-area">
+                        <h6 class="fw-bold mb-3">Resumo Financeiro</h6>
+                        <div class="finance-content">
+
+                            <p class="text-muted">Nenhum dado financeiro disponível por enquanto.</p>
 
                         </div>
                     </section>
 
-                    <div class="row g-4">
+                    <section class="employees-box card-area">
+                        <h6 class="fw-bold mb-3">Funcionários cadastrados</h6>
 
-                        <div class="col-lg-8">
-                            <section class="finance-box p-3 rounded-3 h-100">
-                                <h6 class="fw-bold mb-3">Resumo Financeiro</h6>
-                                <div class="finance-content h-100">
-
-                                    <p class="text-muted">Nenhum dado financeiro disponível por enquanto.</p>
-
-                                </div>
-                            </section>
+                        <div class="employee-card p-3 rounded mb-3">
+                            <span class="dot bg-success"></span>
+                            <strong>Recepcionista | Matheus Sobreira</strong>
+                            <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
+                            <p class="small text-muted">Status: Ativo</p>
                         </div>
 
-                        <div class="col-lg-4">
-                            <section class="employees-box p-3 rounded-3 h-100">
-                                <h6 class="fw-bold mb-3">Funcionários cadastrados</h6>
-
-                                <div class="employee-card p-3 rounded mb-3">
-                                    <span class="dot bg-success"></span>
-                                    <strong>Recepcionista | Matheus Sobreira</strong>
-                                    <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                    <p class="small text-muted">Status: Ativo</p>
-                                </div>
-
-                                <div class="employee-card p-3 rounded mb-3">
-                                    <span class="dot bg-primary"></span>
-                                    <strong>Dentista | Marcelo</strong>
-                                    <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                    <p class="small text-muted">Status: Ativo</p>
-                                </div>
-
-                                <div class="employee-card p-3 rounded">
-                                    <span class="dot bg-danger"></span>
-                                    <strong>Piscanalista | Dr. Auzio Varella</strong>
-                                    <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                    <p class="small text-muted">Status: Inativo</p>
-                                </div>
-                            </section>
+                        <div class="employee-card p-3 rounded mb-3">
+                            <span class="dot bg-primary"></span>
+                            <strong>Dentista | Marcelo</strong>
+                            <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
+                            <p class="small text-muted">Status: Ativo</p>
                         </div>
 
-                    </div>
+                        <div class="employee-card p-3 rounded">
+                            <span class="dot bg-danger"></span>
+                            <strong>Piscanalista | Dr. Auzio Varella</strong>
+                            <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
+                            <p class="small text-muted">Status: Inativo</p>
+                        </div>
+                    </section>
 
                 </div>
-            </main>
 
-        </div>
+            </div>
+        </main>
 
-        <script src="/view/js/bootstrap.min.js"></script>
-    </body>
+    </div>
 
-    </html>
+    <script src="/view/js/bootstrap.min.js"></script>
+</body>
+
+</html>
