@@ -27,6 +27,27 @@ async def home(request: Request):
 async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
+#Criar usuário
+@app.get("/user", response_class=HTMLResponse)
+async def login(request: Request):
+    return templates.TemplateResponse("user-create.html", {"request": request})
+
+# Visualizar usuário
+@app.get("/user/{id}", response_class=HTMLResponse)
+async def user_see(id: int, request: Request):
+    return templates.TemplateResponse(
+        "user-see.html",
+        {"request": request, "id": id}
+    )
+
+# Editar usuário
+@app.get("/user/{id}/edit", response_class=HTMLResponse)
+async def user_edit(id: int, request: Request):
+    return templates.TemplateResponse(
+        "user-edit.html",
+        {"request": request, "id": id}
+    )
+
 
 # Rota API
 @app.get("/api/teste")
