@@ -23,6 +23,11 @@ app.mount("/view", StaticFiles(directory="view"), name="view")
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/login", response_class=HTMLResponse)
+async def login(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+
 # Rota API
 @app.get("/api/teste")
 def teste():

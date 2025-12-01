@@ -3,8 +3,12 @@ from sqlalchemy.orm import sessionmaker # Cria a sessão permitindo a execução
 from sqlalchemy.ext.declarative import declarative_base # A base pra declarar coisas como tabelas
 
 # Link do banco de dados: linguagem+lib://usuario:senha@host:porta/nomeBanco
-URL_DATABASE = 'mysql+pymysql://root:@localhost:3306/esferaodonto'
+# Gustahbo joia
+# URL_DATABASE = 'mysql+pymysql://root:@localhost:3306/esferaodonto'
+# Pedro pensa
 # URL_DATABASE = 'mysql+pymysql://root:Pedrofink2006*@localhost:3306/esfera_db'
+# Triners
+URL_DATABASE = 'mysql+pymysql://root:root@localhost:3306/esfera_db'
 
 # Cria o motor
 engine = create_engine(URL_DATABASE)
