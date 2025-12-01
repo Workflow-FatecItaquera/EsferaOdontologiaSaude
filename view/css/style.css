@@ -188,11 +188,9 @@ body {
 
 .texts h1 {
   font-size: 2.4rem;
-  background: linear-gradient(
-    to right,
-    var(--terciary-blue),
-    var(--saturated-blue)
-  );
+  background: linear-gradient(to right,
+      var(--terciary-blue),
+      var(--saturated-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -242,11 +240,9 @@ body {
 .teamDescription {
   margin: 2rem 4rem;
   padding: 2rem 16rem 2rem 6rem;
-  background: linear-gradient(
-    to right,
-    var(--terciary-blue),
-    var(--primary-blue)
-  );
+  background: linear-gradient(to right,
+      var(--terciary-blue),
+      var(--primary-blue));
   border-radius: 2rem;
   color: var(--primary-white);
   width: 75%;
@@ -423,12 +419,10 @@ footer {
   width: 100%;
   padding: 6rem 0 6rem 4rem;
   color: var(--primary-white);
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--secondary-blue) 35%,
-    var(--terciary-blue)
-  );
+  background: linear-gradient(to right,
+      transparent 0%,
+      var(--secondary-blue) 35%,
+      var(--terciary-blue));
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -570,9 +564,12 @@ footer .mapImage {
   flex: 1;
   padding: 1.5rem;
   overflow: hidden;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 1.5rem;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: var(--transition-principal);
 }
 
 .sidebar {
@@ -581,7 +578,6 @@ footer .mapImage {
   border-radius: 0 2rem 2rem 0;
   background: linear-gradient(180deg, #22364d, #0b1725);
   backdrop-filter: blur(4px);
-  box-shadow: 4px 0 14px rgba(0, 0, 0, 0.12);
 }
 
 .sidebar-nav a:hover,
@@ -589,6 +585,19 @@ footer .mapImage {
   transform: scale(1.22);
   color: var(--primary-white);
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-arrow {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-right: 20px solid var(--secondary-white);
+  border-bottom: 20px solid transparent;
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: var(--transition-principal);
 }
 
 .sidebar-nav {
@@ -626,8 +635,7 @@ footer .mapImage {
   justify-content: end;
   align-items: center;
 
-  background: linear-gradient(to right, #0000, #0b1725) bottom / 100% 1px
-    no-repeat;
+  background: linear-gradient(to right, #0000, #0b1725) bottom / 100% 1px no-repeat;
 }
 
 .user-circle {
