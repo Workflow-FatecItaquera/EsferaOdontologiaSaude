@@ -700,6 +700,20 @@ footer .mapImage {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.employee-card {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.08) 0px 0px 1px 1px;
+}
+
+.dot {
+  height: 1rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: .5rem;
+  transform: translateY(2px);
+}
+
 @media (max-width: 992px) {
   .grid-area {
     grid-template-columns: 1fr;
@@ -714,8 +728,8 @@ footer .mapImage {
 
   .content-area {
     padding: 1rem;
+    font-size: .9rem;
   }
-  font-size: .9rem;
 }
 
 /*Login*/
@@ -837,5 +851,5 @@ footer .mapImage {
   #sectionLeft {
     display: none;
   }
- 
+
 }
