@@ -23,6 +23,11 @@ app.mount("/view", StaticFiles(directory="view"), name="view")
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+# rota dashboard
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard_page(request: Request):
+    return templates.TemplateResponse("dashboard.html", {"request": request})
+  
 @app.get("/login", response_class=HTMLResponse)
 async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
@@ -88,3 +93,4 @@ db_dependency = Annotated[Session,Depends(get_db)]
 @app.post("/api/profissional")
 async def cadastrarProfissional(profi: ProfissionalObj):
     return cadastro(profi)
+
