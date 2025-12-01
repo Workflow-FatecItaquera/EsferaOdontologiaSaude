@@ -6,13 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/view/css/style.css">
     <link rel="icon" type="image/x-icon" href="/view/images/logoEsferaIcon.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <title>Criar usuário</title>
 </head>
 
 <body>
-    <main id="user-create">
-  
-    </main>
+    <div class="d-flex dashboard-wrapper">
+
+        <aside class="sidebar d-flex flex-column align-items-center">
+            <div class="logo-box mt-3 mb-4">
+                <img src="/view/images/logoEsferaIcon.png" class="sidebar-logo" alt="logo">
+            </div>
+
+            <nav class="sidebar-nav d-flex flex-column gap-4">
+                <a href="#" data-section="dash-home" class="sidebar-item active">
+                    <i class="bi bi-house"><img src="/view/images/Home.png" alt=""></i>
+                </a>
+                <a href="#" data-section="dash-appointments" class="sidebar-item">
+                    <i class="bi bi-calendar-event"><img src="/view/images/Calendar.png" alt=""></i>
+                </a>
+                <a href="#" data-section="dash-users" class="sidebar-item">
+                    <i class="bi bi-people"><img src="/view/images/Users.png" alt=""></i>
+                </a>
+                <a href="#" data-section="dash-financial" class="sidebar-item">
+                    <i class="bi bi-cash-stack"><img src="/view/images/Financial.png" alt=""></i>
+                </a>
+                <span class="sidebar-arrow"></span>
+            </nav>
+        </aside>
+
+        <main id="user-create" class="main-content">
+
+            <header class="topbar">
+                <div class="text-end me-3">
+                    <small class="text-muted d-block">Recepcionista</small>
+                    <strong>Matheus Sobreira</strong>
+                </div>
+                <div class="user-circle">
+                    <i class="bi bi-person"></i>
+                </div>
+            </header>
+
+            <article>
+                <div class="form-main">
+                    <div class="section-title d-flex justify-content-between align-items-center">
+                        <h5>Cadastrar funcionário</h5>
+                        <i>teste</i>
+                    </div>
+
+                    <div class="form-input">
+                        <label>Nome completo</label>
+                        <input name="name" placeholder="Nome">
+                    </div>
+
+
+
+                </div>
+
+
+            </article>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <script src="/view/js/bootstrap.min.js"></script>
     <script src="/view/js/script.js"></script>
 </body>

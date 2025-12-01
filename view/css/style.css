@@ -714,11 +714,11 @@ footer .mapImage {
 
   .content-area {
     padding: 1rem;
+    font-size: .9rem;
   }
-  font-size: .9rem;
 }
 
-/*Login*/
+/* LOGIN */
 #login {
   width: 100%;
   display: flex;
@@ -838,4 +838,39 @@ footer .mapImage {
     display: none;
   }
  
+}
+
+/* USUÁRIOS: CRIAR, EDITAR E VER */
+.form-main{
+  background: var(--primary-white);
+  border-radius: 0.5rem;
+  width: 60%;
+  padding: 2rem;
+}
+
+.section-title{
+  width: 100%;
+  background: var(--primary-blue);
+  color: var(--primary-white);
+  border-radius: 0.3rem;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.section-title > h5{
+    font-size: 1.1rem;
+    padding-top: 0.5rem;
+}
+
+.form-input{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.4rem;
+}
+
+.form-input > input {
+  min-width: 18rem;
+  border-radius: 0.4rem;
+  outline: none;
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
 }
