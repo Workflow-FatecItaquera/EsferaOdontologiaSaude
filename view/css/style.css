@@ -188,13 +188,11 @@ body {
 
 .texts h1 {
   font-size: 2.4rem;
-  background: linear-gradient(
-    to right,
-    var(--terciary-blue),
-    var(--saturated-blue)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  --webkit-background-clip: text;
+  --webkit-text-fill-color: transparent;
+  background: linear-gradient(to right,
+      var(--terciary-blue),
+      var(--saturated-blue));
 }
 
 .texts h3 {
@@ -242,11 +240,9 @@ body {
 .teamDescription {
   margin: 2rem 4rem;
   padding: 2rem 16rem 2rem 6rem;
-  background: linear-gradient(
-    to right,
-    var(--terciary-blue),
-    var(--primary-blue)
-  );
+  background: linear-gradient(to right,
+      var(--terciary-blue),
+      var(--primary-blue));
   border-radius: 2rem;
   color: var(--primary-white);
   width: 75%;
@@ -266,6 +262,7 @@ body {
 .teammateCard:first-child {
   margin-left: 10rem;
 }
+
 .teammateCard:last-child {
   margin-right: 4rem;
 }
@@ -422,12 +419,10 @@ footer {
   width: 100%;
   padding: 6rem 0 6rem 4rem;
   color: var(--primary-white);
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--secondary-blue) 35%,
-    var(--terciary-blue)
-  );
+  background: linear-gradient(to right,
+      transparent 0%,
+      var(--secondary-blue) 35%,
+      var(--terciary-blue));
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -546,4 +541,126 @@ footer .mapImage {
   margin: 0;
   font-weight: 200;
   font-size: .9rem;
+}
+
+/*Login*/
+#login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+#sectionLeft {
+  width: 40%;
+  height: 100vh;
+  background: #E8E8E8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#sectionRight {
+  width: 60%;
+  height: 100vh;
+  background-image: url('../images/backgroundLogin.png');
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding-left: 30%;
+  text-align: start;
+}
+
+#sectionRight>.title>h2 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--primary-white);
+}
+
+#sectionRight>.title>p {
+  font-size: 1.2rem;
+  color: var(--primary-white);
+  margin-bottom: 2rem;
+}
+
+.login-logo {
+  width: 15rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  padding: 0.6rem 0.9rem 0.6rem 0.9rem;
+  border: 0.8px solid #E8E8E8;
+  border-radius: 0.4rem;
+  outline: 0;
+  width: 25rem;
+  min-width: 15rem;
+  background: transparent;
+  margin-bottom: 0.5rem;
+  color: var(--primary-gray);
+  font-weight: 300;
+}
+
+.error-message {
+  color: #f14545;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding-top: 0.3rem;
+}
+
+.btn-login {
+  width: 25rem;
+  min-width: 15rem;
+  background: var(--primary-white);
+  color: #000;
+}
+
+.btn-login:hover {
+  background: #e4e4e4;
+}
+
+@media screen and (max-width: 1280px) {
+  #sectionRight {
+    width: 70%;
+  }
+
+  #sectionLeft {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  #sectionRight {
+    width: 100%;
+    background-image: none;
+    background: linear-gradient(to right, #22364D, #0B1725);
+    text-align: start;
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  #sectionLeft {
+    display: none;
+  }
+ 
 }
