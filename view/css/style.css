@@ -546,7 +546,7 @@ footer .mapImage {
 /* ==== DASHBOARD ==== */
 
 .dashboard-wrapper {
-  height: 100vh;
+  height: 100%;
   display: flex;
   overflow: hidden;
   background-color: var(--secondary-white);
@@ -574,6 +574,7 @@ footer .mapImage {
 
 .sidebar {
   width: 8rem;
+  height: calc(100vh - 4rem);
   margin: 2rem 2rem 2rem 0;
   border-radius: 0 2rem 2rem 0;
   background: linear-gradient(180deg, #22364d, #0b1725);
@@ -617,6 +618,11 @@ footer .mapImage {
   width: 5rem;
   margin: 1rem 0;
   filter: brightness(0) invert(1);
+}
+
+.sidebar-item img {
+  width: 2.5rem;
+  aspect-ratio: 1/1;
 }
 
 .bi img {
@@ -837,40 +843,109 @@ footer .mapImage {
   #sectionLeft {
     display: none;
   }
- 
+
 }
 
 /* USUÁRIOS: CRIAR, EDITAR E VER */
-.form-main{
+.form-main {
   background: var(--primary-white);
   border-radius: 0.5rem;
   width: 60%;
   padding: 2rem;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.171);
 }
 
-.section-title{
+.section-title {
   width: 100%;
   background: var(--primary-blue);
   color: var(--primary-white);
   border-radius: 0.3rem;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  padding: 0.3rem 1.5rem 0.3rem 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
-.section-title > h5{
-    font-size: 1.1rem;
-    padding-top: 0.5rem;
+.section-title>h5 {
+  font-size: 0.9rem;
+  padding-top: 0.5rem;
 }
 
-.form-input{
+.form-input {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 0.4rem;
+  padding-bottom: 1.1rem;
 }
 
-.form-input > input {
+.form-input>label {
+  font-size: 0.9rem;
+}
+
+.form-input>input,
+.form-input>select,
+.form-input>textarea {
+  color: #313131;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  width: 100%;
   min-width: 18rem;
+  border: 1px solid #10356075;
   border-radius: 0.4rem;
   outline: none;
   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+}
+
+.form-input>select>option {
+  color: #313131;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+}
+
+.toggle-section i {
+  transition: transform 0.2s ease;
+}
+
+.open-section {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.open-section.open {
+  max-height: 1000px;
+  /* valor grande pra caber tudo */
+  opacity: 1;
+}
+
+.section-buttons>.button {
+  background-color: #e4e4e4;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+  width: 7rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-buttons>.button:hover {
+  background-color: #cfcfcf;
+  transform: translateY(-2px);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-check-input{
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
 }
