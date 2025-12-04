@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/view/css/bootstrap.min.css">
     <link rel="stylesheet" href="/view/css/style.css">
     <link rel="icon" href="/view/images/logoEsferaIcon.png" type="image/x-icon">
-    <title>Editar usuário</title>
+    <title>Editar paciente</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             </nav>
         </aside>
 
-        <main id="user-edit" class="main-content">
+        <main id="patient-edit" class="main-content">
             <header class="topbar">
                 <div class="text-end me-3">
                     <small class="text-muted d-block">Recepcionista</small>
@@ -49,51 +49,21 @@
 
             <article>
                 <div class="form-main">
-                    <section class="user-section">
+                    <section class="patient-section">
                         <div class="section-title d-flex justify-content-between align-items-center">
-                            <h5>Editar funcionário</h5>
+                            <h5>Editar paciente</h5>
                             <i class="bi bi-caret-down-fill"></i>
                         </div>
 
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Nome completo</label>
-                                <input name="name" type="text" placeholder="Nome" value="Matheus Sobreira">
+                                <input name="name" type="text" placeholder="Nome">
                             </div>
 
-                            <div class="form-input">
-                                <label>Cor</label>
-                                <select name="color">
-                                    <option value="">Escolha uma opção</option>
-
-                                    <option value="white" selected>Amarelo</option>
-                                    <option value="black">Preto</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>RG</label>
-                                <input name="rg" type="text" placeholder="RG" value="123456789">
-                            </div>
-
-                            <div class="form-input">
-                                <label>CPF</label>
-                                <input name="cpf" type="text" placeholder="CPF" value="98765432100">
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
-                            <div class="form-input">
-                                <label>E-mail</label>
-                                <input name="email" type="email" placeholder="E-mail"
-                                    value="sobreiramatheus@example.com">
-                            </div>
-
-                            <div class="form-input">
-                                <label>CRO</label>
-                                <input name="cro" type="text" placeholder="CRO" value="0001234">
+                                <input name="rg" type="text" placeholder="RG">
                             </div>
                         </div>
 
@@ -102,7 +72,7 @@
                                 <label>Sexo</label>
                                 <select name="gender">
                                     <option value="">Escolha uma opção</option>
-                                    <option value="male" selected>Masculino</option>
+                                    <option value="male">Masculino</option>
                                     <option value="female">Feminino</option>
                                     <option value="other">Outro</option>
                                 </select>
@@ -110,48 +80,29 @@
 
                             <div class="form-input">
                                 <label>Data de nascimento</label>
-                                <input name="dateofbirth" type="date" placeholder="Data de nascimento"
-                                    value="1990-05-15">
+                                <input name="dateofbirth" type="date" placeholder="Data de nascimento">
                             </div>
                         </div>
 
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
-                                <label>Cargo</label>
-                                <select name="position">
-                                    <option value="">Escolha uma opção</option>
-                                    <option value="receptionist" selected>Recepcionista</option>
-                                    <option value="dentist">Dentista</option>
-                                </select>
+                                <label>Observações</label>
+                                <textarea name="observations" type="text" placeholder="Observações"></textarea>
                             </div>
 
                             <div class="form-input">
-                                <label>Estado civil</label>
-                                <select name="maritalstatus" id="">
-                                    <option value="">Escolha uma opção</option>
-                                    <option value="single" selected>Solteiro(a)</option>
-                                    <option value="married">Casado(a)</option>
-                                    <option value="divorced">Divorciado(a)</option>
-                                    <option value="widowed">Viúvo(a)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
-                            <div class="form-input">
-                                <label>Celular</label>
-                                <input name="cellphone" type="text" placeholder="Celular" value="(11) 91234-5678">
+                                <label>Conhecimento da clínica</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="flexSwitchCheckDefault">
+                                </div>
                             </div>
 
-                            <div class="form-input">
-                                <label>Telefone</label>
-                                <input name="phone" type="text" placeholder="Telefone" value="(11) 3344-5566">
-                            </div>
                         </div>
                     </section>
                     <br>
 
-                    <div class="section-title d-flex justify-content-between align-items-center toggle-section gap-5">
+                    <div class="section-title d-flex justify-content-between align-items-center toggle-section">
                         <h5>Endereço</h5>
                         <i class="bi bi-caret-right-fill"></i>
                     </div>
@@ -160,46 +111,48 @@
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>CEP</label>
-                                <input name="cep" type="text" placeholder="CEP" value="12345-678">
+                                <input name="cep" type="text" placeholder="CEP">
                             </div>
 
                             <div class="form-input">
                                 <label>Logradouro</label>
-                                <input name="logradouro" type="text" placeholder="Logradouro" value="Rua das Flores">
+                                <input name="logradouro" type="text" placeholder="Logradouro">
                             </div>
                         </div>
 
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Bairro</label>
-                                <input name="bairro" type="text" placeholder="Bairro" value="Centro">
+                                <input name="bairro" type="text" placeholder="Bairro">
                             </div>
 
                             <div class="form-input">
                                 <label>Número</label>
-                                <input name="numero" type="text" placeholder="Número" value="123">
+                                <input name="numero" type="text" placeholder="Número">
                             </div>
                         </div>
 
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Cidade</label>
-                                <input name="cidade" type="text" placeholder="Cidade" value="São Paulo">
+                                <input name="cidade" type="text" placeholder="Cidade">
                             </div>
 
                             <div class="form-input">
                                 <label>Estado</label>
-                                <input name="estado" type="text" placeholder="Estado" value="SP">
+                                <input name="estado" type="text" placeholder="Estado">
                             </div>
                         </div>
 
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Complemento</label>
-                                <textarea name="complemento" placeholder="Complemento" id="">Apto 101</textarea>
+                                <textarea name="complemento" placeholder="Complemento" id=""></textarea>
                             </div>
-                            <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
-                                <div class="form-input">
+
+                            <div class="form-input">
+                                <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+
                                     <label>Desativar registro</label>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch"
@@ -207,8 +160,20 @@
                                     </div>
                                 </div>
                             </div>
+                    </section>
+
+                    <div class="section-title d-flex justify-content-between align-items-center toggle-section">
+                        <h5>Prontuário</h5>
+                        <i class="bi bi-caret-right-fill"></i>
+                    </div>
+
+                    <section class="open-section">
+                        <div class="form-input">
+                            <label>Observações</label>
+                            <textarea name="observations" placeholder="Observações" id=""></textarea>
                         </div>
                     </section>
+
 
                     <div class="section-buttons d-flex flex-row justify-content-start gap-3">
                         <div class="button">Salvar</div>
