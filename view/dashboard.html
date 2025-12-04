@@ -1,201 +1,236 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Esfera Odontologia e Saúde</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esfera Odontologia e Saúde</title>
 
-        <link rel="stylesheet" href="/view/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/view/css/style.css">
+    <link rel="stylesheet" href="/view/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/view/css/style.css">
 
-        <link rel="icon" href="/view/images/logoEsferaIcon.png" type="image/x-icon">
-    </head>
+    <link rel="icon" href="/view/images/logoEsferaIcon.png" type="image/x-icon">
+</head>
 
-    <body>
+<body>
 
-        <div class="d-flex dashboard-wrapper">
+    <div class="d-flex dashboard-wrapper">
 
-            <aside class="sidebar d-flex flex-column align-items-center">
-                <div class="logo-box mt-3 mb-4">
-                    <img src="/view/images/logoEsferaIcon.png" class="sidebar-logo" alt="logo">
+        <aside class="sidebar d-flex flex-column align-items-center">
+            <div class="logo-box mt-3 mb-4">
+                <img src="/view/images/logoEsferaIcon.png" class="sidebar-logo" alt="logo">
+            </div>
+
+            <nav class="sidebar-nav d-flex flex-column gap-4">
+                <a href="#" data-section="dash-home" class="sidebar-item">
+                    <i class="bi bi-house"><img src="/view/images/Home.png" alt=""></i>
+                </a>
+                <a href="#" data-section="dash-appointments" class="sidebar-item active">
+                    <i class="bi bi-calendar-event"><img src="/view/images/Calendar.png" alt=""></i>
+                </a>
+                <a href="#" data-section="dash-users" class="sidebar-item">
+                    <i class="bi bi-people"><img src="/view/images/Users.png" alt=""></i>
+                </a>
+                <a href="#" data-section="dash-financial" class="sidebar-item">
+                    <i class="bi bi-cash-stack"><img src="/view/images/Financial.png" alt=""></i>
+                </a>
+                <span class="sidebar-arrow"></span>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div class="text-end me-3">
+                    <small class="text-muted d-block">Recepcionista</small>
+                    <strong>Matheus Sobreira</strong>
                 </div>
+                <div class="user-circle">
+                    <i class="bi bi-person"></i>
+                </div>
+            </header>
 
-                <nav class="sidebar-nav d-flex flex-column gap-4">
-                    <a href="#" data-section="dash-home" class="sidebar-item active">
-                        <i class="bi bi-house"><img src="/view/images/Home.png" alt=""></i>
-                    </a>
-                    <a href="#" data-section="dash-appointments" class="sidebar-item">
-                        <i class="bi bi-calendar-event"><img src="/view/images/Calendar.png" alt=""></i>
-                    </a>
-                    <a href="#" data-section="dash-users" class="sidebar-item">
-                        <i class="bi bi-people"><img src="/view/images/Users.png" alt=""></i>
-                    </a>
-                    <a href="#" data-section="dash-financial" class="sidebar-item">
-                        <i class="bi bi-cash-stack"><img src="/view/images/Financial.png" alt=""></i>
-                    </a>
-                    <span class="sidebar-arrow"></span>
-                </nav>
-            </aside>
+            <div id="dash-home" class="content-area">
 
-            <main class="main-content">
-
-                <header class="topbar">
-                    <div class="text-end me-3">
-                        <small class="text-muted d-block">Recepcionista</small>
-                        <strong>Matheus Sobreira</strong>
+                <section class="appointments-section">
+                    <div class="d-flex justify-content-between mb-2">
+                        <h6 class="fw-bold">Próximos agendamentos</h6>
+                        <span class="text-muted">Novembro de 2025</span>
                     </div>
-                    <div class="user-circle">
-                        <i class="bi bi-person"></i>
-                    </div>
-                </header>
 
-                <div id="dash-home" class="content-area">
-
-                    <section class="appointments-section">
-                        <div class="d-flex justify-content-between mb-2">
-                            <h6 class="fw-bold">Próximos agendamentos</h6>
-                            <span class="text-muted">Novembro de 2025</span>
+                    <div class="d-flex gap-3 overflow-auto appointments-scroll">
+                        <div class="appointment-card p-3 rounded">
+                            <small>03/11 • 10:00 - 11:30</small>
+                            <p class="mb-0 fw-bold">Dr. Marcelo</p>
+                            <p class="text-muted small mb-0">Paciente Rodrigo Oliveira</p>
                         </div>
 
-                        <div class="d-flex gap-3 overflow-auto appointments-scroll">
-                            <div class="appointment-card p-3 rounded">
-                                <small>03/11 • 10:00 - 11:30</small>
-                                <p class="mb-0 fw-bold">Dr. Marcelo</p>
-                                <p class="text-muted small mb-0">Paciente Rodrigo Oliveira</p>
-                            </div>
+                        <div class="appointment-card p-3 rounded">
+                            <small>03/11 • 12:45 - 13:30</small>
+                            <p class="fw-bold mb-0">Dr. Auzio Varella</p>
+                            <p class="text-muted small mb-0">Paciente Estillos Henrique</p>
+                        </div>
 
-                            <div class="appointment-card p-3 rounded">
-                                <small>03/11 • 12:45 - 13:30</small>
-                                <p class="fw-bold mb-0">Dr. Auzio Varella</p>
-                                <p class="text-muted small mb-0">Paciente Estillos Henrique</p>
-                            </div>
+                        <div class="appointment-card p-3 rounded">
+                            <small>04/11 • 09:00 - 09:30</small>
+                            <p class="fw-bold mb-0">Dr. Pedro F</p>
+                            <p class="text-muted small">Paciente Gustavo Rodrigues</p>
+                        </div>
 
-                            <div class="appointment-card p-3 rounded">
-                                <small>04/11 • 09:00 - 09:30</small>
-                                <p class="fw-bold mb-0">Dr. Pedro F</p>
-                                <p class="text-muted small">Paciente Gustavo Rodrigues</p>
-                            </div>
+                    </div>
+                </section>
+
+                <div class="grid-area">
+
+                    <section class="finance-box card-area">
+                        <h6 class="fw-bold mb-3">Resumo Financeiro</h6>
+                        <div class="finance-content">
+
+                            <p class="text-muted">Nenhum dado financeiro disponível por enquanto.</p>
 
                         </div>
                     </section>
 
-                    <div class="grid-area">
+                    <section class="employees-box card-area">
+                        <h6 class="fw-bold mb-3">Funcionários cadastrados</h6>
 
-                        <section class="finance-box card-area">
-                            <h6 class="fw-bold mb-3">Resumo Financeiro</h6>
-                            <div class="finance-content">
+                        <div class="employee-card p-3 rounded mb-3">
 
-                                <p class="text-muted">Nenhum dado financeiro disponível por enquanto.</p>
-
-                            </div>
-                        </section>
-
-                        <section class="employees-box card-area">
-                            <h6 class="fw-bold mb-3">Funcionários cadastrados</h6>
-
-                            <div class="employee-card p-3 rounded mb-3">
-                                
-                                <strong><span class="dot" style="--color: #C8EFD6"></span> Recepcionista | Matheus Sobreira</strong>
-                                <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                <p class="small text-muted">Status: Ativo</p>
-                            </div>
-
-                            <div class="employee-card p-3 rounded mb-3">
-                                
-                                <strong><span class="dot" style="--color: #E4D9FF"></span> Dentista | Marcelo</strong>
-                                <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                <p class="small text-muted">Status: Ativo</p>
-                            </div>
-
-                            <div class="employee-card p-3 rounded">
-                                
-                                <strong><span class="dot" style="--color: #FFE8A3"></span> Piscanalista | Dr. Auzio Varella</strong>
-                                <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                <p class="small text-muted">Status: Inativo</p>
-                            </div>
-                        </section>
-
-                    </div>
-
-                </div>
-                
-                
-                <div id="dash-appointments" class="content-area">
-
-                    <section class="appointments-section">
-                        <div class="d-flex justify-content-between mb-2">
-                            <h6 class="fw-bold">a</h6>
-                            <span class="text-muted">a</span>
+                            <strong><span class="dot" style="--color: #C8EFD6"></span> Recepcionista | Matheus
+                                Sobreira</strong>
+                            <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
+                            <p class="small text-muted">Status: Ativo</p>
                         </div>
 
-                        <div class="d-flex gap-3 overflow-auto appointments-scroll">
-                            <div class="appointment-card p-3 rounded">
-                                <small>03/11 • 10:00 - 11:30</small>
-                                <p class="mb-0 fw-bold">Dr. Marcelo</p>
-                                <p class="text-muted small mb-0">Paciente Rodrigo Oliveira</p>
-                            </div>
+                        <div class="employee-card p-3 rounded mb-3">
 
-                            <div class="appointment-card p-3 rounded">
-                                <small>03/11 • 12:45 - 13:30</small>
-                                <p class="fw-bold mb-0">Dr. Auzio Varella</p>
-                                <p class="text-muted small mb-0">Paciente Estillos Henrique</p>
-                            </div>
+                            <strong><span class="dot" style="--color: #E4D9FF"></span> Dentista | Marcelo</strong>
+                            <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
+                            <p class="small text-muted">Status: Ativo</p>
+                        </div>
 
-                            <div class="appointment-card p-3 rounded">
-                                <small>04/11 • 09:00 - 09:30</small>
-                                <p class="fw-bold mb-0">Dr. Pedro F</p>
-                                <p class="text-muted small">Paciente Gustavo Rodrigues</p>
-                            </div>
+                        <div class="employee-card p-3 rounded">
 
+                            <strong><span class="dot" style="--color: #FFE8A3"></span> Piscanalista | Dr. Auzio
+                                Varella</strong>
+                            <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
+                            <p class="small text-muted">Status: Inativo</p>
                         </div>
                     </section>
 
-                    <div class="grid-area">
+                </div>
 
-                        <section class="finance-box card-area">
-                            <h6 class="fw-bold mb-3">Resumo Financeiro</h6>
-                            <div class="finance-content">
+            </div>
 
-                                <p class="text-muted">Nenhum dado financeiro disponível por enquanto.</p>
 
-                            </div>
-                        </section>
+            <div id="dash-appointments" class="content-area">
+                <div class="appointments-page">
 
-                        <section class="employees-box card-area">
-                            <h6 class="fw-bold mb-3">Funcionários cadastrados</h6>
-
-                            <div class="employee-card p-3 rounded mb-3">
-                                <span class="dot bg-success"></span>
-                                <strong>Recepcionista | Matheus Sobreira</strong>
-                                <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                <p class="small text-muted">Status: Ativo</p>
-                            </div>
-
-                            <div class="employee-card p-3 rounded mb-3">
-                                <span class="dot bg-primary"></span>
-                                <strong>Dentista | Marcelo</strong>
-                                <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                <p class="small text-muted">Status: Ativo</p>
-                            </div>
-
-                            <div class="employee-card p-3 rounded">
-                                <span class="dot bg-danger"></span>
-                                <strong>Piscanalista | Dr. Auzio Varella</strong>
-                                <p class="mb-0 small text-muted">Identificação: XXX.XXX.XXX-XX</p>
-                                <p class="small text-muted">Status: Inativo</p>
-                            </div>
-                        </section>
-
+                    <div class="appointments-header">
+                        <h5 class="fw-bold">Agendamentos</h5>
+                        <button id="btnNewAppointment" class="btn btn-sm">+ Novo Agendamento</button>
                     </div>
 
+                    <div class="appointments-layout">
+
+                        <aside class="appointments-left card-area">
+                            <div class="mb-4">
+                                <label class="small text-muted">Selecionar data</label>
+                                <input type="date" id="ap-date" class="form-control" />
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-2">Profissionais</h6>
+                                <div id="professionalsList" class="d-flex flex-column gap-2"></div>
+                                <button id="btnFilterAll" class="btn btn-sm btn-outline-secondary mt-3">Mostrar
+                                    todos</button>
+                            </div>
+
+                            <div>
+                                <h6 class="fw-bold mb-2">Opções</h6>
+                                <div class="small text-muted">
+                                    <p class="mb-1">Clique em um horário livre para agendar.</p>
+                                    <p class="mb-0">Intervalo: 15 minutos</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <section class="appointments-right card-area">
+                            <div class="appointments-agenda-header">
+                                <h6 id="agendaTitle" class="mb-0">Agenda — <span id="agendaDateLabel"></span></h6>
+                                <div class="small text-muted" id="agendaLegend">Todos os agendamentos</div>
+                            </div>
+
+                            <div id="timelineContainer" class="timeline-container"></div>
+                        </section>
+                    </div>
                 </div>
-            </main>
 
-        </div>
+                <div id="appointmentModal" class="appointments-modal" aria-hidden="true">
+                    <div class="appointments-modal-backdrop"></div>
 
-        <script src="/view/js/bootstrap.min.js"></script>
-        <script src="/view/js/tabManipulator.js"></script>
-    </body>
+                    <div class="appointments-modal-panel card-area">
 
-    </html>
+                        <div class="appointments-modal-header">
+                            <h6 class="mb-0">Novo Agendamento</h6>
+                            <button id="modalClose" class="btn btn-sm btn-light">Fechar</button>
+                        </div>
+
+                        <div id="modalSteps">
+                            <div class="modal-step" data-step="1">
+                                <label class="small text-muted">Nome do paciente</label>
+                                <input id="m_patientName" class="form-control mb-2" placeholder="Nome completo" />
+
+                                <label class="small text-muted">Telefone</label>
+                                <input id="m_patientPhone" class="form-control mb-2" placeholder="(xx) xxxxx-xxxx" />
+
+                                <label class="small text-muted">Email (opcional)</label>
+                                <input id="m_patientEmail" class="form-control mb-2" placeholder="email@exemplo.com" />
+                            </div>
+
+                            <div class="modal-step d-none" data-step="2">
+                                <label class="small text-muted">Selecione o profissional</label>
+                                <div id="m_professionals" class="d-flex flex-column gap-2 mt-2"></div>
+                            </div>
+
+                            <div class="modal-step d-none" data-step="3">
+                                <label class="small text-muted">Data</label>
+                                <input id="m_date" type="date" class="form-control mb-2" />
+
+                                <label class="small text-muted">Horários disponíveis</label>
+                                <div id="m_timeSlots" class="modal-times"></div>
+                            </div>
+
+                            <div class="modal-step d-none" data-step="4">
+                                <h6>Revisão</h6>
+                                <div id="m_review" class="small text-muted"></div>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="m_reminder" />
+                                    <label class="form-check-label small text-muted" for="m_reminder">
+                                        Enviar lembrete ao paciente
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="appointments-modal-actions">
+                            <button id="modalPrev" class="btn btn-sm btn-outline-secondary">Voltar</button>
+                            <button id="modalNext" class="btn btn-sm">Próximo</button>
+                        </div>
+
+                        <div id="modalError" class="mt-2 text-danger small d-none">Erro</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/view/js/bootstrap.min.js"></script>
+    <script src="/view/js/tabManipulator.js"></script>
+    <script src="/view/js/appointments.js"></script>
+
+</body>
+
+</html>
