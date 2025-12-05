@@ -846,14 +846,62 @@ footer .mapImage {
 
 }
 
-/* USUÁRIOS: CRIAR, EDITAR E VER */
+/* CRIAR, EDITAR E VER */
 .form-main {
   background: var(--primary-white);
   border-radius: 0.5rem;
-  width: 60%;
+  width: 700px;
   padding: 2rem;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.171);
 }
+
+@media screen and (max-width: 900px) {
+  .form-main {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .gap-5 {
+    gap: 0rem !important;
+  }
+
+  .section-forms {
+    flex-direction:  column !important;
+  }
+
+  .form-duplicate {
+    gap: 0.5rem !important;
+    flex-direction:  row!important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form-main {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .gap-5 {
+    gap: 0rem !important;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+
+  .form-input>input,
+  .form-input>select,
+  .form-input>textarea {
+    width: 100% !important;
+  }
+
+  .section-forms {
+    flex-wrap: wrap !important;
+  }
+
+
+}
+
 
 .section-title {
   width: 100%;
@@ -887,8 +935,7 @@ footer .mapImage {
   color: #313131;
   font-family: var(--font-main);
   font-size: 0.8rem;
-  width: 100%;
-  min-width: 18rem;
+  width: 18rem;
   border: 1px solid #10356075;
   border-radius: 0.4rem;
   outline: none;
@@ -941,11 +988,51 @@ textarea:disabled {
   opacity: 0.7;
 }
 
-.form-check-input{
+.form-check-input {
   cursor: pointer;
 }
 
 .form-check-input:checked {
   background-color: var(--primary-blue);
   border-color: var(--primary-blue);
+}
+
+
+button.add-option {
+  background-color: var(--saturated-blue);
+  color: var(--primary-white);
+  font-size: 0.8rem;
+  ;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+  height: 35px;
+}
+
+.appointment {
+  background-color: var(--secondary-white);
+  border: 1px solid var(--primary-gray);
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  width: 300px;
+  min-width: 150px;
+}
+
+.appointment p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--terciary-blue);
+}
+
+.appointment i {
+  cursor: pointer;
+  color: rgb(150, 32, 32);
+  font-weight: bold;
+}
+
+.appointment>div>p.professional {
+  color: var(--primary-blue);
+  font-size: 0.8rem;
 }
