@@ -76,6 +76,31 @@ async def patient_edit(id: int, request: Request):
         "patient-edit.html",
         {"request": request, "id": id}
     )
+    
+# Criar consulta
+@app.get("/appointment", response_class=HTMLResponse)
+async def appointment_create(request: Request):
+    return templates.TemplateResponse(
+        "appointment-create.html",
+        {"request": request}
+    )
+    
+# Visualizar consulta
+@app.get("/appointment/{id}", response_class=HTMLResponse)
+async def appointment_see(id: int, request: Request):
+    return templates.TemplateResponse(
+        "appointment-see.html",
+        {"request": request, "id": id}
+    )
+    
+# Editar consulta
+@app.get("/appointment/{id}/edit", response_class=HTMLResponse)
+async def appointment_edit(id: int, request: Request):
+    return templates.TemplateResponse(
+        "appointment-edit.html",
+        {"request": request, "id": id}
+    )
+
 
 
 # Rota API
