@@ -32,6 +32,76 @@ async def dashboard_page(request: Request):
 async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
+#Criar usuário
+@app.get("/user", response_class=HTMLResponse)
+async def login(request: Request):
+    return templates.TemplateResponse("user-create.html", {"request": request})
+
+# Visualizar usuário
+@app.get("/user/{id}", response_class=HTMLResponse)
+async def user_see(id: int, request: Request):
+    return templates.TemplateResponse(
+        "user-see.html",
+        {"request": request, "id": id}
+    )
+
+# Editar usuário
+@app.get("/user/{id}/edit", response_class=HTMLResponse)
+async def user_edit(id: int, request: Request):
+    return templates.TemplateResponse(
+        "user-edit.html",
+        {"request": request, "id": id}
+    )
+    
+# Criar paciente
+@app.get("/patient", response_class=HTMLResponse)
+async def patient_create(request: Request):
+    return templates.TemplateResponse(
+        "patient-create.html",
+        {"request": request}
+    )  
+
+# Visualizar paciente
+@app.get("/patient/{id}", response_class=HTMLResponse)
+async def patient_see(id: int, request: Request):
+    return templates.TemplateResponse(
+        "patient-see.html",
+        {"request": request, "id": id}
+    )   
+    
+# Editar paciente
+@app.get("/patient/{id}/edit", response_class=HTMLResponse)
+async def patient_edit(id: int, request: Request):
+    return templates.TemplateResponse(
+        "patient-edit.html",
+        {"request": request, "id": id}
+    )
+    
+# Criar consulta
+@app.get("/appointment", response_class=HTMLResponse)
+async def appointment_create(request: Request):
+    return templates.TemplateResponse(
+        "appointment-create.html",
+        {"request": request}
+    )
+    
+# Visualizar consulta
+@app.get("/appointment/{id}", response_class=HTMLResponse)
+async def appointment_see(id: int, request: Request):
+    return templates.TemplateResponse(
+        "appointment-see.html",
+        {"request": request, "id": id}
+    )
+    
+# Editar consulta
+@app.get("/appointment/{id}/edit", response_class=HTMLResponse)
+async def appointment_edit(id: int, request: Request):
+    return templates.TemplateResponse(
+        "appointment-edit.html",
+        {"request": request, "id": id}
+    )
+
+
 
 # Rota API
 @app.get("/api/teste")
