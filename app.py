@@ -60,21 +60,22 @@ model.Usuarios.Base.metadata.create_all(bind=engine)
 templates = Jinja2Templates(directory="view")
 app.mount("/view", StaticFiles(directory="view"), name="view")
 
-# Rota Web
+# Rota Web Principal
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-# rota dashboard
+# Dashboard
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard_page(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
-  
+
+# Login  
 @app.get("/login", response_class=HTMLResponse)
 async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
-#Criar usuário
+# Criar usuário
 @app.get("/user", response_class=HTMLResponse)
 async def login(request: Request):
     return templates.TemplateResponse("user-create.html", {"request": request})
