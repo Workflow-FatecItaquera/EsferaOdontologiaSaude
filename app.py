@@ -4,7 +4,28 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from typing import Annotated
-import model.Profissional
+import model.AgendaFuncionario
+import model.Agendas
+import model.Anexos
+import model.CategoriaProcedimento
+import model.Clinicas
+import model.Consultas
+import model.Contas
+import model.Cores
+import model.Enderecos
+import model.FichasClinicas
+import model.FormaPagamento
+import model.Funcoes
+import model.Honorario
+import model.Lancamento
+import model.Orcamentos
+import model.Pacientes
+import model.Pagamentos
+import model.Procedimentos
+import model.Prontuarios
+import model.Status
+import model.TipoLancamento
+import model.Usuarios
 from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 
@@ -12,27 +33,49 @@ from routes.api import testar, cadastro
 
 app = FastAPI()
 
-model.Profissional.Base.metadata.create_all(bind=engine)
+model.AgendaFuncionario.Base.metadata.create_all(bind=engine)
+model.Agendas.Base.metadata.create_all(bind=engine)
+model.Anexos.Base.metadata.create_all(bind=engine)
+model.CategoriaProcedimento.Base.metadata.create_all(bind=engine)
+model.Clinicas.Base.metadata.create_all(bind=engine)
+model.Consultas.Base.metadata.create_all(bind=engine)
+model.Contas.Base.metadata.create_all(bind=engine)
+model.Cores.Base.metadata.create_all(bind=engine)
+model.Enderecos.Base.metadata.create_all(bind=engine)
+model.FichasClinicas.Base.metadata.create_all(bind=engine)
+model.FormaPagamento.Base.metadata.create_all(bind=engine)
+model.Funcoes.Base.metadata.create_all(bind=engine)
+model.Honorario.Base.metadata.create_all(bind=engine)
+model.Lancamento.Base.metadata.create_all(bind=engine)
+model.Orcamentos.Base.metadata.create_all(bind=engine)
+model.Pacientes.Base.metadata.create_all(bind=engine)
+model.Pagamentos.Base.metadata.create_all(bind=engine)
+model.Procedimentos.Base.metadata.create_all(bind=engine)
+model.Prontuarios.Base.metadata.create_all(bind=engine)
+model.Status.Base.metadata.create_all(bind=engine)
+model.TipoLancamento.Base.metadata.create_all(bind=engine)
+model.Usuarios.Base.metadata.create_all(bind=engine)
 
 # Páginas HTML
 templates = Jinja2Templates(directory="view")
 app.mount("/view", StaticFiles(directory="view"), name="view")
 
-# Rota Web
+# Rota Web Principal
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-# rota dashboard
+# Dashboard
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard_page(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
-  
+
+# Login  
 @app.get("/login", response_class=HTMLResponse)
 async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
-#Criar usuário
+# Criar usuário
 @app.get("/user", response_class=HTMLResponse)
 async def login(request: Request):
     return templates.TemplateResponse("user-create.html", {"request": request})
