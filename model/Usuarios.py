@@ -14,12 +14,16 @@ class Usuarios(Base):
     id_conta = Column(String(255), ForeignKey("contas.id_conta"))
     id_endereco = Column(String(255), ForeignKey("enderecos.id_endereco"))
     id_agenda = Column(String(255), ForeignKey("agendas.id_agenda"))
+    
     nome = Column(String(255))
     data_nascimento = Column(Date)
+    email = Column(String(255), unique=True, nullable=False)
+    senha_hash = Column(String(255), nullable=False)
     documento = Column(String(255))
     criado = Column(DateTime)
     editado = Column(DateTime)
     inativado = Column(String(1))
+
 
     funcao = relationship("Funcoes")
     cor = relationship("Cores")

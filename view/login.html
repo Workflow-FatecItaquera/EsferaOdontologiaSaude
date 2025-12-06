@@ -21,14 +21,13 @@
                 <h2>Login</h2>
                 <p>Faça login pra entrar na plataforma</p>
             </div>
-            <form action="">
+            <form id="formLogin">
                 <div class="form-group">
-                    <input type="email" class="input input-email" aria-describedby="emailHelp"
-                        placeholder="E-mail">
-                        <div class="error-message"></div>
+                    <input type="email" name="email" class="input input-email" placeholder="E-mail" required>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="input input-password" placeholder="Senha">
+                    <input type="password" name="senha" class="input input-password" placeholder="Senha" required>
                     <div class="error-message"></div>
                 </div>
                 <button type="submit" class="btn btn-login">Entrar</button>
@@ -36,6 +35,30 @@
 
         </section>
     </main>
+    <script>
+        document.querySelector("#formLogin").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document.querySelector(".input-email").value;
+            const senha = document.querySelector(".input-password").value;
+
+            const resp = await fetch("/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `email=${email}&senha=${senha}`
+            });
+
+            const data = await resp.json();
+
+            if (resp.status !== 200) {
+                alert(data.detail || "Erro ao fazer login");
+                return;
+            }
+
+            window.location.href = "/dashboard";
+        });
+    </script>
+
     <script src="/view/js/bootstrap.min.js"></script>
     <script src="/view/js/script.js"></script>
 </body>

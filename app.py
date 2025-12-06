@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Request, HTTPException, Depends, status
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from typing import Annotated
+
 import model.AgendaFuncionario
 import model.Agendas
 import model.Anexos
@@ -26,12 +27,26 @@ import model.Prontuarios
 import model.Status
 import model.TipoLancamento
 import model.Usuarios
+
 from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 
-from routes.api import testar, cadastro
+# JWT
+from auth import verificar_token
+
+# Rotas da API
+from routes.api import router as api_router
+
+# --------------------------------------------------
+# INICIALIZA FASTAPI
+# --------------------------------------------------
 
 app = FastAPI()
+app.include_router(api_router, prefix="/api")  # <── ROTAS /api
+
+# --------------------------------------------------
+# CRIA TABELAS
+# --------------------------------------------------
 
 model.AgendaFuncionario.Base.metadata.create_all(bind=engine)
 model.Agendas.Base.metadata.create_all(bind=engine)
@@ -56,100 +71,74 @@ model.Status.Base.metadata.create_all(bind=engine)
 model.TipoLancamento.Base.metadata.create_all(bind=engine)
 model.Usuarios.Base.metadata.create_all(bind=engine)
 
-# Páginas HTML
+# --------------------------------------------------
+# HTML / STATIC
+# --------------------------------------------------
+
 templates = Jinja2Templates(directory="view")
 app.mount("/view", StaticFiles(directory="view"), name="view")
 
-# Rota Web Principal
+# --------------------------------------------------
+# ROTAS WEB (NADA FOI REMOVIDO)
+# --------------------------------------------------
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-# Dashboard
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard_page(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
-# Login  
 @app.get("/login", response_class=HTMLResponse)
 async def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
-# Criar usuário
+# USER
 @app.get("/user", response_class=HTMLResponse)
-async def login(request: Request):
+async def user_create(request: Request):
     return templates.TemplateResponse("user-create.html", {"request": request})
 
-# Visualizar usuário
 @app.get("/user/{id}", response_class=HTMLResponse)
 async def user_see(id: int, request: Request):
-    return templates.TemplateResponse(
-        "user-see.html",
-        {"request": request, "id": id}
-    )
+    return templates.TemplateResponse("user-see.html", {"request": request, "id": id})
 
-# Editar usuário
 @app.get("/user/{id}/edit", response_class=HTMLResponse)
 async def user_edit(id: int, request: Request):
-    return templates.TemplateResponse(
-        "user-edit.html",
-        {"request": request, "id": id}
-    )
-    
-# Criar paciente
+    return templates.TemplateResponse("user-edit.html", {"request": request, "id": id})
+
+# PATIENT
 @app.get("/patient", response_class=HTMLResponse)
 async def patient_create(request: Request):
-    return templates.TemplateResponse(
-        "patient-create.html",
-        {"request": request}
-    )  
+    return templates.TemplateResponse("patient-create.html", {"request": request})
 
-# Visualizar paciente
 @app.get("/patient/{id}", response_class=HTMLResponse)
 async def patient_see(id: int, request: Request):
-    return templates.TemplateResponse(
-        "patient-see.html",
-        {"request": request, "id": id}
-    )   
-    
-# Editar paciente
+    return templates.TemplateResponse("patient-see.html", {"request": request, "id": id})
+
 @app.get("/patient/{id}/edit", response_class=HTMLResponse)
 async def patient_edit(id: int, request: Request):
-    return templates.TemplateResponse(
-        "patient-edit.html",
-        {"request": request, "id": id}
-    )
-    
-# Criar consulta
+    return templates.TemplateResponse("patient-edit.html", {"request": request, "id": id})
+
+# APPOINTMENT
 @app.get("/appointment", response_class=HTMLResponse)
 async def appointment_create(request: Request):
-    return templates.TemplateResponse(
-        "appointment-create.html",
-        {"request": request}
-    )
-    
-# Visualizar consulta
+    return templates.TemplateResponse("appointment-create.html", {"request": request})
+
 @app.get("/appointment/{id}", response_class=HTMLResponse)
 async def appointment_see(id: int, request: Request):
-    return templates.TemplateResponse(
-        "appointment-see.html",
-        {"request": request, "id": id}
-    )
-    
-# Editar consulta
+    return templates.TemplateResponse("appointment-see.html", {"request": request, "id": id})
+
 @app.get("/appointment/{id}/edit", response_class=HTMLResponse)
 async def appointment_edit(id: int, request: Request):
-    return templates.TemplateResponse(
-        "appointment-edit.html",
-        {"request": request, "id": id}
-    )
+    return templates.TemplateResponse("appointment-edit.html", {"request": request, "id": id})
 
-
-
-# Rota API
-@app.get("/api/teste")
-def teste():
-    return testar()
+# --------------------------------------------------
+# API ANTIGA
+# --------------------------------------------------
+# --------------------------------------------------
+# OBJETO PROFISSIONAL
+# --------------------------------------------------
 
 class ProfissionalObj(BaseModel):
     nomeCompleto: str
@@ -173,6 +162,7 @@ class PostBase(BaseModel):
 class UserBase(BaseModel):
     username: str
 
+# DB
 def get_db():
     db = SessionLocal()
     try:
@@ -180,9 +170,32 @@ def get_db():
     finally:
         db.close()
 
-db_dependency = Annotated[Session,Depends(get_db)]
+db_dependency = Annotated[Session, Depends(get_db)]
 
-@app.post("/api/profissional")
-async def cadastrarProfissional(profi: ProfissionalObj):
-    return cadastro(profi)
 
+# --------------------------------------------------
+# MIDDLEWARE DE AUTENTICAÇÃO
+# --------------------------------------------------
+
+@app.middleware("http")
+async def autenticar(request: Request, call_next):
+    caminho = request.url.path
+
+    paginas_protegidas = [
+        "/dashboard",
+        "/user",
+        "/patient",
+        "/appointment"
+    ]
+
+    if any(caminho.startswith(p) for p in paginas_protegidas):
+        token = request.cookies.get("session")
+
+        if not token:
+            return RedirectResponse("/login")
+
+        dados = verificar_token(token)
+        if not dados:
+            return RedirectResponse("/login")
+
+    return await call_next(request)
