@@ -4,11 +4,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from database import Base
+import uuid
 
 class Clinicas(Base):
     __tablename__ = "clinicas"
 
-    id_clinica = Column(String(255), primary_key=True)
+    id_clinica = Column(String(255), primary_key=True, default=lambda: str(uuid.uuid4()))
     id_conta = Column(String(255), ForeignKey("contas.id_conta"))
     id_endereco = Column(String(255), ForeignKey("enderecos.id_endereco"))
     razao_social = Column(String(255))

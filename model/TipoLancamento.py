@@ -4,11 +4,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from database import Base
+import uuid
 
 class TipoLancamento(Base):
     __tablename__ = "tipo_lancamento"
 
-    id_tipolancamento = Column(String(255), primary_key=True)
+    id_tipolancamento = Column(String(255), primary_key=True, default=lambda: str(uuid.uuid4()))
     nome = Column(String(255))
     criado = Column(DateTime)
     editado = Column(DateTime)

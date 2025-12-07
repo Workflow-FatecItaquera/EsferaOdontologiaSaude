@@ -58,16 +58,16 @@
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Nome completo</label>
-                                <input name="name" type="text" placeholder="Nome" value="Matheus Sobreira" disabled>
+                                <input name="name" type="text" placeholder="Nome" value="{{usuario.nome}}" disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>Cor</label>
                                 <select name="color" id="" disabled>
                                     <option value="">Escolha uma opção</option>
-
-                                    <option value="white" selected>Amarelo</option>
-                                    <option value="black">Preto</option>
+                                    {% for cor in cores %}
+                                    <option value="{{cor.id_cor}}" {% if cor.id_cor == usuario.id_cor %}selected{% endif %}>{{cor.nome}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -75,12 +75,12 @@
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>RG</label>
-                                <input name="rg" type="text" placeholder="RG" value="123456789" disabled>
+                                <input name="rg" type="text" placeholder="RG" value="{{usuario.rg}}" disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>CPF</label>
-                                <input name="cpf" type="text" placeholder="CPF" value="98765432100" disabled>
+                                <input name="cpf" type="text" placeholder="CPF" value="{{usuario.cpf}}" disabled>
                             </div>
                         </div>
 
@@ -88,12 +88,12 @@
                             <div class="form-input">
                                 <label>E-mail</label>
                                 <input name="email" type="email" placeholder="E-mail"
-                                    value="sobreiramatheus@example.com" disabled>
+                                    value="{{usuario.email}}" disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>CRO</label>
-                                <input name="cro" type="text" placeholder="CRO" value="0001234" disabled>
+                                <input name="cro" type="text" placeholder="CRO" value="{{usuario.cro}}" disabled>
                             </div>
                         </div>
 
@@ -102,16 +102,16 @@
                                 <label>Sexo</label>
                                 <select name="gender" id="" disabled>
                                     <option value="">Escolha uma opção</option>
-                                    <option value="male" selected>Masculino</option>
-                                    <option value="female">Feminino</option>
-                                    <option value="other">Outro</option>
+                                    <option value="male" {% if usuario.sexo=='male'%}selected{%endif%}>Masculino</option>
+                                    <option value="female" {% if usuario.sexo=='female'%}selected{%endif%}>Feminino</option>
+                                    <option value="other" {% if usuario.sexo=='other'%}selected{%endif%}>Outro</option>
                                 </select>
                             </div>
 
                             <div class="form-input">
                                 <label>Data de nascimento</label>
                                 <input name="dateofbirth" type="date" placeholder="Data de nascimento"
-                                    value="1990-05-15" disabled>
+                                    value="{{usuario.data_nascimento}}" disabled>
                             </div>
                         </div>
 
@@ -120,8 +120,9 @@
                                 <label>Cargo</label>
                                 <select name="position" id="" disabled>
                                     <option value="">Escolha uma opção</option>
-                                    <option value="receptionist" selected>Recepcionista</option>
-                                    <option value="dentist">Dentista</option>
+                                    {%for funcao in funcoes%}
+                                    <option value="{{funcao.id_funcao}}" {%if funcao.id_funcao == usuario.id_funcao %}selected{%endif%}>{{funcao.nome}}</option>
+                                    {%endfor%}
                                 </select>
                             </div>
 
@@ -129,10 +130,10 @@
                                 <label>Estado civil</label>
                                 <select name="maritalstatus" id="" disabled>
                                     <option value="">Escolha uma opção</option>
-                                    <option value="single" selected>Solteiro(a)</option>
-                                    <option value="married">Casado(a)</option>
-                                    <option value="divorced">Divorciado(a)</option>
-                                    <option value="widowed">Viúvo(a)</option>
+                                    <option value="single" {% if usuario.estado_civil=='single'%}selected{%endif%}>Solteiro(a)</option>
+                                    <option value="married" {% if usuario.estado_civil=='married'%}selected{%endif%}>Casado(a)</option>
+                                    <option value="divorced" {% if usuario.estado_civil=='divorced'%}selected{%endif%}>Divorciado(a)</option>
+                                    <option value="widowed" {% if usuario.estado_civil=='widowed'%}selected{%endif%}>Viúvo(a)</option>
                                 </select>
                             </div>
                         </div>
@@ -140,13 +141,13 @@
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Celular</label>
-                                <input name="cellphone" type="text" placeholder="Celular" value="(11) 91234-5678"
+                                <input name="cellphone" type="text" placeholder="Celular" value="{{usuario.celular}}"
                                     disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>Telefone</label>
-                                <input name="phone" type="text" placeholder="Telefone" value="(11) 3344-5566" disabled>
+                                <input name="phone" type="text" placeholder="Telefone" value="{{usuario.telefone}}" disabled>
                             </div>
                         </div>
                     </section>
@@ -161,12 +162,12 @@
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>CEP</label>
-                                <input name="cep" type="text" placeholder="CEP" value="12345-678" disabled>
+                                <input name="cep" type="text" placeholder="CEP" value="{{endereco.cep}}" disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>Logradouro</label>
-                                <input name="logradouro" type="text" placeholder="Logradouro" value="Rua das Flores"
+                                <input name="logradouro" type="text" placeholder="Logradouro" value="{{endereco.logradouro}}"
                                     disabled>
                             </div>
                         </div>
@@ -174,24 +175,24 @@
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Bairro</label>
-                                <input name="bairro" type="text" placeholder="Bairro" value="Centro" disabled>
+                                <input name="bairro" type="text" placeholder="Bairro" value="{{endereco.bairro}}" disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>Número</label>
-                                <input name="numero" type="text" placeholder="Número" value="123" disabled>
+                                <input name="numero" type="text" placeholder="Número" value="{{endereco.numero}}" disabled>
                             </div>
                         </div>
 
                         <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Cidade</label>
-                                <input name="cidade" type="text" placeholder="Cidade" value="São Paulo" disabled>
+                                <input name="cidade" type="text" placeholder="Cidade" value="{{endereco.cidade}}" disabled>
                             </div>
 
                             <div class="form-input">
                                 <label>Estado</label>
-                                <input name="estado" type="text" placeholder="Estado" value="SP" disabled>
+                                <input name="estado" type="text" placeholder="Estado" value="{{endereco.estado}}" disabled>
                             </div>
                         </div>
 
@@ -199,7 +200,7 @@
                             <div class="form-input">
                                 <label>Complemento</label>
                                 <textarea name="complemento" placeholder="Complemento" id=""
-                                    disabled>Apto 101</textarea>
+                                    disabled>{{endereco.complemento}}</textarea>
                             </div>
 
                             <div class="d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">

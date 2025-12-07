@@ -4,11 +4,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from database import Base
+import uuid
 
 class Agendas(Base):
     __tablename__ = "agendas"
 
-    id_agenda = Column(String(255), primary_key=True)
+    id_agenda = Column(String(255), primary_key=True, default=lambda: str(uuid.uuid4()))
     id_consulta = Column(String(255), ForeignKey("consultas.id_consulta"))
     data = Column(Date)
     horario_inicio = Column(Time)

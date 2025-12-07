@@ -48,7 +48,7 @@
             </header>
 
             <article>
-                <div class="form-main">
+                <form method="post" action="/api/usuario" class="form-main">
                     <section class="user-section">
                         <div class="section-title d-flex justify-content-between align-items-center">
                             <h5>Cadastrar funcionário</h5>
@@ -65,9 +65,9 @@
                                 <label>Cor</label>
                                 <select name="color">
                                     <option value="">Escolha uma opção</option>
-
-                                    <option value="white">Amarelo</option>
-                                    <option value="black">Preto</option>
+                                    {% for cor in cores %}
+                                    <option value="{{cor.id_cor}}">{{cor.nome}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -118,8 +118,9 @@
                                 <label>Cargo</label>
                                 <select name="position">
                                     <option value="">Escolha uma opção</option>
-                                    <option value="receptionist">Recepcionista</option>
-                                    <option value="dentist">Dentista</option>
+                                    {% for funcao in funcoes %}
+                                    <option value="{{funcao.id_funcao}}">{{funcao.nome}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
 
@@ -158,36 +159,36 @@
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>CEP</label>
-                                <input name="cep" type="text" placeholder="CEP">
+                                <input name="cep" type="text" placeholder="CEP" oninput="buscaCep(this)">
                             </div>
 
                             <div class="form-input">
                                 <label>Logradouro</label>
-                                <input name="logradouro" type="text" placeholder="Logradouro">
+                                <input name="logradouro" id="logradouro" type="text" placeholder="Logradouro">
                             </div>
                         </div>
 
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Bairro</label>
-                                <input name="bairro" type="text" placeholder="Bairro">
+                                <input name="bairro" id="bairro" type="text" placeholder="Bairro">
                             </div>
 
                             <div class="form-input">
                                 <label>Número</label>
-                                <input name="numero" type="text" placeholder="Número">
+                                <input name="numero" id="numero" type="text" placeholder="Número">
                             </div>
                         </div>
 
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Cidade</label>
-                                <input name="cidade" type="text" placeholder="Cidade">
+                                <input name="cidade" id="cidade" type="text" placeholder="Cidade">
                             </div>
 
                             <div class="form-input">
                                 <label>Estado</label>
-                                <input name="estado" type="text" placeholder="Estado">
+                                <input name="estado" id="estado" type="text" placeholder="Estado">
                             </div>
                         </div>
 
@@ -200,10 +201,10 @@
                     </section>
 
                     <div class="section-buttons d-flex flex-row justify-content-start gap-3">
-                        <div class="button">Criar</div>
-                        <div class="button">Voltar</div>
+                        <input type="submit" value="Criar" class="button"></input>
+                        <input type="reset" value="Voltar" class="button"></input>
                     </div>
-                </div>
+                </form>
             </article>
         </main>
     </div>
@@ -211,6 +212,7 @@
     <script src="/view/js/header.js"></script>
     <script src="/view/js/bootstrap.min.js"></script>
     <script src="/view/js/tabManipulator.js"></script>
+    <script src="/view/js/viacep.js"></script>
 
 </body>
 

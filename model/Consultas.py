@@ -4,11 +4,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from database import Base
+import uuid
 
 class Consultas(Base):
     __tablename__ = "consultas"
 
-    id_consulta = Column(String(255), primary_key=True)
+    id_consulta = Column(String(255), primary_key=True, default=lambda: str(uuid.uuid4()))
     id_paciente = Column(String(255), ForeignKey("pacientes.id_paciente"))
     id_usuario = Column(String(255), ForeignKey("usuarios.id_usuario"))
     id_procedimento = Column(String(255), ForeignKey("procedimentos.id_procedimento"))
@@ -25,6 +26,6 @@ class Consultas(Base):
     paciente = relationship("Pacientes")
     usuario = relationship("Usuarios")
     procedimento = relationship("Procedimentos")
-    agenda = relationship("Agendas")
+    agenda = relationship("Agendas", foreign_keys=[id_agenda])
     honorario_rel = relationship("Honorario")
     status_rel = relationship("Status")
