@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="/view/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/view/css/style.css">
+    <link rel="icon" href="/view/images/logoEsferaIcon.png" type="image/x-icon">
+    <title>Cadastrar paciente</title>
+</head>
+
+<body>
+    <div class="d-flex dashboard-wrapper">
+        <aside class="sidebar d-flex flex-column align-items-center">
+            <div class="logo-box mt-3 mb-4">
+                <img src="/view/images/logoEsferaIcon.png" class="sidebar-logo" alt="logo">
+            </div>
+
+            <nav class="sidebar-nav d-flex flex-column gap-4">
+                <a href="#" data-section="dash-home" class="sidebar-item">
+                    <img src="/view/images/Home.png" alt="">
+                </a>
+                <a href="#" data-section="dash-appointments" class="sidebar-item">
+                    <img src="/view/images/Calendar.png" alt="">
+                </a>
+                <a href="#" data-section="dash-users" class="sidebar-item active">
+                    <img src="/view/images/Users.png" alt="">
+                </a>
+                <a href="#" data-section="dash-financial" class="sidebar-item">
+                    <img src="/view/images/Financial.png" alt="">
+                </a>
+                <span class="sidebar-arrow"></span>
+            </nav>
+        </aside>
+
+        <main id="patient-create" class="main-content">
+            <header class="topbar">
+                <div class="text-end me-3">
+                    <small class="text-muted d-block">Recepcionista</small>
+                    <strong>Matheus Sobreira</strong>
+                </div>
+                <div class="user-circle">
+                    <i class="bi bi-person"></i>
+                </div>
+            </header>
+
+            <article>
+                <div class="form-main">
+                    <section class="patient-section">
+                        <div class="section-title d-flex justify-content-between align-items-center">
+                            <h5>Cadastrar paciente</h5>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>Nome completo</label>
+                                <input name="name" type="text" placeholder="Nome">
+                            </div>
+
+                            <div class="form-input">
+                                <label>RG</label>
+                                <input name="rg" type="text" placeholder="RG">
+                            </div>
+                        </div>
+
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>Sexo</label>
+                                <select name="gender">
+                                    <option value="">Escolha uma opção</option>
+                                    <option value="male">Masculino</option>
+                                    <option value="female">Feminino</option>
+                                    <option value="other">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-input">
+                                <label>Data de nascimento</label>
+                                <input name="dateofbirth" type="date" placeholder="Data de nascimento">
+                            </div>
+                        </div>
+
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>Observações</label>
+                                <textarea name="observations" type="text" placeholder="Observações"></textarea>
+                            </div>
+
+                            <div class="form-input">
+                                <label>Conhecimento da clínica</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="flexSwitchCheckDefault">
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <br>
+
+                    <div class="section-title d-flex justify-content-between align-items-center toggle-section">
+                        <h5>Endereço</h5>
+                        <i class="bi bi-caret-right-fill"></i>
+                    </div>
+
+                    <section class="open-section">
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>CEP</label>
+                                <input name="cep" type="text" placeholder="CEP">
+                            </div>
+
+                            <div class="form-input">
+                                <label>Logradouro</label>
+                                <input name="logradouro" type="text" placeholder="Logradouro">
+                            </div>
+                        </div>
+
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>Bairro</label>
+                                <input name="bairro" type="text" placeholder="Bairro">
+                            </div>
+
+                            <div class="form-input">
+                                <label>Número</label>
+                                <input name="numero" type="text" placeholder="Número">
+                            </div>
+                        </div>
+
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>Cidade</label>
+                                <input name="cidade" type="text" placeholder="Cidade">
+                            </div>
+
+                            <div class="form-input">
+                                <label>Estado</label>
+                                <input name="estado" type="text" placeholder="Estado">
+                            </div>
+                        </div>
+
+                        <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
+                            <div class="form-input">
+                                <label>Complemento</label>
+                                <textarea name="complemento" placeholder="Complemento" id=""></textarea>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="section-title d-flex justify-content-between align-items-center toggle-section">
+                        <h5>Prontuário</h5>
+                        <i class="bi bi-caret-right-fill"></i>
+                    </div>
+
+                    <section class="open-section">
+                        <div class="form-input">
+                            <label>Observações</label>
+                            <textarea name="observations" placeholder="Observações" id=""></textarea>
+                        </div>
+                    </section>
+
+                    <div class="section-buttons d-flex flex-row justify-content-start gap-3">
+                        <div class="button">Criar</div>
+                        <div class="button">Voltar</div>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="/view/js/header.js"></script>
+    <script src="/view/js/bootstrap.min.js"></script>
+    <script src="/view/js/tabManipulator.js"></script>
+
+</body>
+
+</html>

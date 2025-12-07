@@ -3,6 +3,9 @@
 def testar():
     return {"status":200,"message":"Teste"}
 
+def listarUsuarios():
+    return
+
 # POST
 
 def cadastro(profi):
