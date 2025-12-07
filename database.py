@@ -9,10 +9,7 @@ URL_DATABASE = 'mysql+pymysql://root:@localhost:3306/esferaodonto'
 URL_DATABASE = 'mysql+pymysql://root:Pedrofink2006*@localhost:3306/esfera_db'
 # Triners
 # URL_DATABASE = 'mysql+pymysql://root:root@localhost:3306/esfera_db'
-<<<<<<< HEAD
-=======
 # URL_DATABASE = 'mysql+pymysql://root:root@localhost:3306/esferaodonto'
->>>>>>> aad5e95e85fe2cd306c738b3bab8f76e1ed12a3c
 
 # Cria o motor
 engine = create_engine(URL_DATABASE)

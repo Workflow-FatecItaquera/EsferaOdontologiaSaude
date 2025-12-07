@@ -16,6 +16,10 @@ function moveArrowTo(element) {
 }
 
 function changeSection(nextSectionId) {
+  document.dispatchEvent(
+    new CustomEvent("sectionChange", { detail: nextSectionId })
+  );
+
   const nextSection = document.getElementById(nextSectionId);
   if (nextSection === currentSection) return;
 
