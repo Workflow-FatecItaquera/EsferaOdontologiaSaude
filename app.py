@@ -80,9 +80,9 @@ async def user_create(request: Request, db: Session = Depends(get_db)):
 # Visualizar usuário
 @app.get("/user/{id}", response_class=HTMLResponse)
 async def user_see(id: str, request: Request, db: Session = Depends(get_db)):
-    usuario = db.query(Usuarios).filter(Usuarios.id_usuario==id).all()[0]
+    usuario = db.query(Usuarios).filter(Usuarios.id_usuario==id).first()
     cores = db.query(Cores).all()
-    endereco = db.query(Enderecos).filter(Enderecos.id_endereco==usuario.id_endereco).all()[0]
+    endereco = db.query(Enderecos).filter(Enderecos.id_endereco==usuario.id_endereco).first()
     funcoes = db.query(Funcoes).all()
     return templates.TemplateResponse(
         "user-see.html",
@@ -91,10 +91,14 @@ async def user_see(id: str, request: Request, db: Session = Depends(get_db)):
 
 # Editar usuário
 @app.get("/user/{id}/edit", response_class=HTMLResponse)
-async def user_edit(id: int, request: Request):
+async def user_edit(id: str, request: Request, db: Session = Depends(get_db)):
+    usuario = db.query(Usuarios).filter(Usuarios.id_usuario==id).first()
+    endereco = db.query(Enderecos).filter(Enderecos.id_endereco==usuario.id_endereco).first()
+    cores = db.query(Cores).filter(Cores.em_uso=="0").all()
+    funcoes = db.query(Funcoes).filter(Funcoes.inativado=="0").all()
     return templates.TemplateResponse(
         "user-edit.html",
-        {"request": request, "id": id}
+        {"request": request, "id": id, "usuario":usuario,"endereco":endereco,"cores":cores,"funcoes":funcoes}
     )
     
 # Criar paciente
@@ -271,3 +275,73 @@ async def cadastrar_usuario(
         status_code=303
     )
 
+@app.post("/api/user/edit/{id}")
+async def atualizar_usuario(
+    id: str,
+    name: str = Form(...),
+    color: str = Form(""),
+    rg: str = Form(""),
+    cpf: str = Form(""),
+    email: str = Form(""),
+    cro: str = Form(""),
+    gender: str = Form(""),
+    dateofbirth: str = Form(""),
+    position: str = Form(""),
+    maritalstatus: str = Form(""),
+    cellphone: str = Form(""),
+    phone: str = Form(""),
+    cep: str = Form(""),
+    logradouro: str = Form(""),
+    bairro: str = Form(""),
+    numero: str = Form(""),
+    cidade: str = Form(""),
+    estado: str = Form(""),
+    complemento: str = Form(""),
+    db: Session = Depends(get_db)
+):
+    usuario = db.query(Usuarios).filter(Usuarios.id_usuario==id).first()
+
+    antigo_endereco = db.query(Enderecos).filter(Enderecos.id_endereco==usuario.id_endereco).first()
+    db.delete(antigo_endereco)
+
+    endereco = Enderecos(
+        cep=cep,
+        logradouro=logradouro,
+        bairro = bairro,
+        numero = numero,
+        cidade = cidade,
+        estado = estado,
+        complemento = complemento,
+        criado = "",
+        editado = "",
+        inativado = "0"
+    )
+
+    db.add(endereco)
+    db.commit()
+    db.refresh(endereco)
+
+    conta = db.query(Contas).filter(Contas.id_conta==usuario.id_conta).first()
+    
+    usuario.nome = name
+    usuario.id_cor = color
+    usuario.id_endereco = endereco.id_endereco
+    usuario.id_conta = conta.id_conta
+    usuario.rg = rg
+    usuario.cpf = cpf
+    usuario.email = email
+    usuario.cro = cro
+    usuario.sexo = gender
+    usuario.data_nascimento = dateofbirth
+    usuario.id_funcao = position
+    usuario.estado_civil = maritalstatus
+    usuario.celular = cellphone
+    usuario.telefone = phone
+
+    db.commit()
+    db.refresh(usuario)
+
+    return RedirectResponse(
+        url="/user/" + id,
+        status_code=303
+    )

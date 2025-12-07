@@ -48,7 +48,7 @@
             </header>
 
             <article>
-                <div class="form-main">
+                <form method="post" action="/api/user/edit/{{usuario.id_usuario}}" class="form-main">
                     <section class="user-section">
                         <div class="section-title d-flex justify-content-between align-items-center">
                             <h5>Editar funcionário</h5>
@@ -58,16 +58,16 @@
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Nome completo</label>
-                                <input name="name" type="text" placeholder="Nome" value="Matheus Sobreira">
+                                <input name="name" type="text" placeholder="Nome" value="{{usuario.nome}}">
                             </div>
 
                             <div class="form-input">
                                 <label>Cor</label>
                                 <select name="color">
                                     <option value="">Escolha uma opção</option>
-
-                                    <option value="white" selected>Amarelo</option>
-                                    <option value="black">Preto</option>
+                                    {%for cor in cores%}
+                                    <option value="{{cor.id_cor}}" {%if usuario.id_cor==cor.id_cor %}selected{%endif%}>{{cor.nome}}</option>
+                                    {%endfor%}
                                 </select>
                             </div>
                         </div>
@@ -75,12 +75,12 @@
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>RG</label>
-                                <input name="rg" type="text" placeholder="RG" value="123456789">
+                                <input name="rg" type="text" placeholder="RG" value="{{usuario.rg}}">
                             </div>
 
                             <div class="form-input">
                                 <label>CPF</label>
-                                <input name="cpf" type="text" placeholder="CPF" value="98765432100">
+                                <input name="cpf" type="text" placeholder="CPF" value="{{usuario.cpf}}">
                             </div>
                         </div>
 
@@ -88,12 +88,12 @@
                             <div class="form-input">
                                 <label>E-mail</label>
                                 <input name="email" type="email" placeholder="E-mail"
-                                    value="sobreiramatheus@example.com">
+                                    value="{{usuario.email}}">
                             </div>
 
                             <div class="form-input">
                                 <label>CRO</label>
-                                <input name="cro" type="text" placeholder="CRO" value="0001234">
+                                <input name="cro" type="text" placeholder="CRO" value="{{usuario.cro}}">
                             </div>
                         </div>
 
@@ -102,16 +102,16 @@
                                 <label>Sexo</label>
                                 <select name="gender">
                                     <option value="">Escolha uma opção</option>
-                                    <option value="male" selected>Masculino</option>
-                                    <option value="female">Feminino</option>
-                                    <option value="other">Outro</option>
+                                    <option value="male" {%if usuario.sexo=='male'%}selected{%endif%}>Masculino</option>
+                                    <option value="female" {%if usuario.sexo=='female'%}selected{%endif%}>Feminino</option>
+                                    <option value="other" {%if usuario.sexo=='other'%}selected{%endif%}>Outro</option>
                                 </select>
                             </div>
 
                             <div class="form-input">
                                 <label>Data de nascimento</label>
                                 <input name="dateofbirth" type="date" placeholder="Data de nascimento"
-                                    value="1990-05-15">
+                                    value="{{usuario.data_nascimento}}">
                             </div>
                         </div>
 
@@ -120,8 +120,9 @@
                                 <label>Cargo</label>
                                 <select name="position">
                                     <option value="">Escolha uma opção</option>
-                                    <option value="receptionist" selected>Recepcionista</option>
-                                    <option value="dentist">Dentista</option>
+                                    {%for funcao in funcoes%}
+                                    <option value="{{funcao.id_funcao}}" {%if usuario.id_funcao==funcao.id_funcao %}selected{%endif%}>{{funcao.nome}}</option>
+                                    {%endfor%}
                                 </select>
                             </div>
 
@@ -129,10 +130,10 @@
                                 <label>Estado civil</label>
                                 <select name="maritalstatus" id="">
                                     <option value="">Escolha uma opção</option>
-                                    <option value="single" selected>Solteiro(a)</option>
-                                    <option value="married">Casado(a)</option>
-                                    <option value="divorced">Divorciado(a)</option>
-                                    <option value="widowed">Viúvo(a)</option>
+                                    <option value="single" {%if usuario.estado_civil=='single'%}selected{%endif%}>Solteiro(a)</option>
+                                    <option value="married" {%if usuario.estado_civil=='married'%}selected{%endif%}>Casado(a)</option>
+                                    <option value="divorced" {%if usuario.estado_civil=='divorced'%}selected{%endif%}>Divorciado(a)</option>
+                                    <option value="widowed" {%if usuario.estado_civil=='widowed'%}selected{%endif%}>Viúvo(a)</option>
                                 </select>
                             </div>
                         </div>
@@ -140,12 +141,12 @@
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Celular</label>
-                                <input name="cellphone" type="text" placeholder="Celular" value="(11) 91234-5678">
+                                <input name="cellphone" type="text" placeholder="Celular" value="{{usuario.celular}}">
                             </div>
 
                             <div class="form-input">
                                 <label>Telefone</label>
-                                <input name="phone" type="text" placeholder="Telefone" value="(11) 3344-5566">
+                                <input name="phone" type="text" placeholder="Telefone" value="{{usuario.telefone}}">
                             </div>
                         </div>
                     </section>
@@ -160,43 +161,43 @@
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>CEP</label>
-                                <input name="cep" type="text" placeholder="CEP" value="12345-678">
+                                <input name="cep" type="text" placeholder="CEP" value="{{endereco.cep}}">
                             </div>
 
                             <div class="form-input">
                                 <label>Logradouro</label>
-                                <input name="logradouro" type="text" placeholder="Logradouro" value="Rua das Flores">
+                                <input name="logradouro" type="text" placeholder="Logradouro" value="{{endereco.logradouro}}">
                             </div>
                         </div>
 
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Bairro</label>
-                                <input name="bairro" type="text" placeholder="Bairro" value="Centro">
+                                <input name="bairro" type="text" placeholder="Bairro" value="{{endereco.bairro}}">
                             </div>
 
                             <div class="form-input">
                                 <label>Número</label>
-                                <input name="numero" type="text" placeholder="Número" value="123">
+                                <input name="numero" type="text" placeholder="Número" value="{{endereco.numero}}">
                             </div>
                         </div>
 
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Cidade</label>
-                                <input name="cidade" type="text" placeholder="Cidade" value="São Paulo">
+                                <input name="cidade" type="text" placeholder="Cidade" value="{{endereco.cidade}}">
                             </div>
 
                             <div class="form-input">
                                 <label>Estado</label>
-                                <input name="estado" type="text" placeholder="Estado" value="SP">
+                                <input name="estado" type="text" placeholder="Estado" value="{{endereco.estado}}">
                             </div>
                         </div>
 
                         <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                             <div class="form-input">
                                 <label>Complemento</label>
-                                <textarea name="complemento" placeholder="Complemento" id="">Apto 101</textarea>
+                                <textarea name="complemento" placeholder="Complemento" id="">{{endereco.complemento}}</textarea>
                             </div>
                             <div class="section-forms d-flex flex-row justify-content-left align-items-start flex-wrap gap-5">
                                 <div class="form-input">
@@ -211,10 +212,10 @@
                     </section>
 
                     <div class="section-buttons d-flex flex-row justify-content-start gap-3">
-                        <div class="button">Salvar</div>
-                        <div class="button">Voltar</div>
+                        <input type="submit" value="Salvar" class="button">
+                        <input type="reset" value="Voltar" class="button">
                     </div>
-                </div>
+                </form>
             </article>
         </main>
     </div>
