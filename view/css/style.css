@@ -186,6 +186,9 @@ body {
   font-size: 2.4rem;
   --webkit-background-clip: text;
   --webkit-text-fill-color: transparent;
+  color: var(--primary-white);
+  border-radius: 1rem;
+  padding: 2rem 3rem;
   background: linear-gradient(
     to right,
     var(--terciary-blue),
@@ -858,8 +861,6 @@ footer .mapImage {
     display: none;
   }
 }
-
-
 
 
 .appointments-header {
