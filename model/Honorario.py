@@ -4,11 +4,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 from database import Base
+import uuid
 
 class Honorario(Base):
     __tablename__ = "honorario"
 
-    id_honorario = Column(String(255), primary_key=True)
+    id_honorario = Column(String(255), primary_key=True, default=lambda: str(uuid.uuid4()))
     id_usuario = Column(String(255), ForeignKey("usuarios.id_usuario"))
     id_procedimento = Column(String(255), ForeignKey("procedimentos.id_procedimento"))
     valor_honorario = Column(Float)
