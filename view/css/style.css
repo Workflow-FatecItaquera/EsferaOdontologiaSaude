@@ -563,6 +563,167 @@ footer .mapImage {
   background-color: var(--secondary-white);
 }
 
+.modal-dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #1c1c1e;
+  z-index: 1100;
+}
+
+.modal-dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#userOptions,
+#changePasswordModal,
+#editUserModal {
+  top: 100px;
+  right: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 0.8rem 1rem;
+  min-width: 220px;
+  gap: 0.6rem;
+  overflow: hidden;
+  display: none;
+}
+
+#userOptions .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#userOptions .modal-btn {
+  background: transparent;
+  border: none;
+  padding: 0.45rem 0.6rem;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1c1c1e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#userOptions .modal-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#userOptions .modal-btn.primary {
+  background: #0071e3;
+  color: #fff;
+}
+
+#userOptions .modal-btn.primary:hover {
+  background: #005bb5;
+}
+
+
+#changePasswordModal,
+#editUserModal {
+  top: 100px;
+  right: 20px;
+  background: #fff; 
+  border-radius: 16px; 
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18); 
+  padding: 1.2rem 1.5rem; 
+  min-width: 280px;
+  max-width: 360px;
+  display: none; 
+  flex-direction: column;
+  gap: 1rem;
+  color: #1c1c1e;
+  z-index: 1100;
+}
+
+#changePasswordModal .modal-content,
+#editUserModal .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+#changePasswordModal h5,
+#editUserModal h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.modal-input {
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #d1d1d6;
+  background: #f9f9f9;
+  font-size: 0.95rem;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #0071e3;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.modal-btn {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  background: #f2f2f7;
+  color: #1c1c1e;
+}
+
+.modal-btn:hover {
+  background: #e4e4e7;
+}
+
+.modal-btn.primary {
+  background: #0071e3;
+  color: #fff;
+}
+
+.modal-btn.primary:hover {
+  background: #005bb5;
+}
+
+.modal-dropdown {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 .content-area {
   flex: 1;
   padding: 1.5rem;
@@ -643,6 +804,7 @@ footer .mapImage {
   display: flex;
   justify-content: end;
   align-items: center;
+  position: relative;
 
   background: linear-gradient(to right, #0000, #0b1725) bottom / 100% 1px
     no-repeat;
@@ -862,7 +1024,6 @@ footer .mapImage {
   }
 }
 
-
 .appointments-header {
   display: flex;
   justify-content: space-between;
@@ -892,7 +1053,7 @@ footer .mapImage {
 .professionalsCards {
   border-radius: 0.8rem;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.00);
+  border: 1px solid rgba(0, 0, 0, 0);
   transition: var(--transition-principal);
 }
 
@@ -1097,12 +1258,12 @@ footer .mapImage {
   }
 
   .section-forms {
-    flex-direction:  column !important;
+    flex-direction: column !important;
   }
 
   .form-duplicate {
     gap: 0.5rem !important;
-    flex-direction:  row!important;
+    flex-direction: row !important;
   }
 }
 
@@ -1120,19 +1281,16 @@ footer .mapImage {
     width: 100%;
   }
 
-  .form-input>input,
-  .form-input>select,
-  .form-input>textarea {
+  .form-input > input,
+  .form-input > select,
+  .form-input > textarea {
     width: 100% !important;
   }
 
   .section-forms {
     flex-wrap: wrap !important;
   }
-
-
 }
-
 
 .section-title {
   width: 100%;
@@ -1143,7 +1301,7 @@ footer .mapImage {
   margin-bottom: 1.2rem;
 }
 
-.section-title>h5 {
+.section-title > h5 {
   font-size: 0.9rem;
   padding-top: 0.5rem;
 }
@@ -1156,13 +1314,13 @@ footer .mapImage {
   padding-bottom: 1.1rem;
 }
 
-.form-input>label {
+.form-input > label {
   font-size: 0.9rem;
 }
 
-.form-input>input,
-.form-input>select,
-.form-input>textarea {
+.form-input > input,
+.form-input > select,
+.form-input > textarea {
   color: #313131;
   font-family: var(--font-main);
   font-size: 0.8rem;
@@ -1173,7 +1331,7 @@ footer .mapImage {
   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
 }
 
-.form-input>select>option {
+.form-input > select > option {
   color: #313131;
   font-family: var(--font-main);
   font-size: 0.9rem;
@@ -1195,7 +1353,7 @@ footer .mapImage {
   opacity: 1;
 }
 
-.section-buttons>.button {
+.section-buttons > .button {
   background-color: #e4e4e4;
   font-size: 0.9rem;
   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
@@ -1206,7 +1364,7 @@ footer .mapImage {
   transition: all 0.3s ease-in-out;
 }
 
-.section-buttons>.button:hover {
+.section-buttons > .button:hover {
   background-color: #cfcfcf;
   transform: translateY(-2px);
 }
@@ -1227,12 +1385,10 @@ textarea:disabled {
   border-color: var(--primary-blue);
 }
 
-
 button.add-option {
   background-color: var(--saturated-blue);
   color: var(--primary-white);
   font-size: 0.8rem;
-  ;
   border: none;
   border-radius: 0.4rem;
   padding: 0.4rem 0.5rem;
@@ -1262,7 +1418,7 @@ button.add-option {
   font-weight: bold;
 }
 
-.appointment>div>p.professional {
+.appointment > div > p.professional {
   color: var(--primary-blue);
   font-size: 0.8rem;
 }
@@ -1289,13 +1445,11 @@ button.add-option {
   transform: translateY(-2px);
 }
 
-
 .users-layout {
   display: flex;
   gap: 1rem;
   min-height: 60vh;
 }
-
 
 .users-left {
   flex: 0 0 320px;
@@ -1459,7 +1613,7 @@ button.add-option {
 
 .user-card:hover {
   border-color: #d1d5db;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 /* Ícones/colunas */
@@ -1509,7 +1663,7 @@ button.add-option {
 
 #userSearch:focus {
   border-color: #4a90e2;
-  box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
 }
 
 /* Container */
@@ -1521,7 +1675,6 @@ button.add-option {
 p {
   margin-bottom: 4px;
 }
-
 
 @media (max-width: 992px) {
   .users-left {
@@ -1545,6 +1698,12 @@ p {
 }
 
 @keyframes modalFade {
-  0% { opacity: 0; transform: translateY(-12px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
