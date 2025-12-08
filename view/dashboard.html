@@ -49,6 +49,42 @@
                 </div>
             </header>
 
+            <div id="userOptions" class="modal-dropdown">
+                <div class="modal-content">
+                    <button id="changePasswordBtn" class="modal-btn">Alterar minha senha</button>
+                    <button id="editUserBtn" class="modal-btn">Editar usuário</button>
+                    <button id="logoutBtn" class="modal-btn">Sair</button>
+                </div>
+            </div>
+
+            <div id="changePasswordModal" class="modal-dropdown">
+                <div class="modal-content">
+                    <h5>Alterar Senha</h5>
+                    <input type="password" id="newPassword" placeholder="Nova senha" class="modal-input">
+                    <input type="password" id="confirmPassword" placeholder="Confirmar nova senha" class="modal-input">
+                    <div class="modal-actions">
+                        <button id="cancelPasswordBtn" class="modal-btn">Cancelar</button>
+                        <button id="savePasswordBtn" class="modal-btn primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Editar Usuário -->
+            <div id="editUserModal" class="modal-dropdown">
+                <div class="modal-content">
+                    <h5>Editar Usuário</h5>
+                    <input type="text" id="editName" placeholder="Nome" class="modal-input">
+                    <input type="email" id="editEmail" placeholder="Email" class="modal-input">
+                    <input type="text" id="editPhone" placeholder="Telefone" class="modal-input">
+                    <input type="text" id="editRole" placeholder="Função" class="modal-input">
+                    <input type="color" id="editColor" class="modal-input">
+                    <div class="modal-actions">
+                        <button id="cancelEditBtn" class="modal-btn">Cancelar</button>
+                        <button id="saveEditBtn" class="modal-btn primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+
             <div id="dash-home" class="content-area">
 
                 <section class="appointments-section">

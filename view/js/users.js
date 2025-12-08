@@ -180,6 +180,16 @@
     attachUserButtons();
   }
 
+  function generateTempPassword(length = 10) {
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
   // ==============================
   // Buttons inside cards
   // ==============================
@@ -426,10 +436,11 @@
       data.birth = u_birth.value;
       data.obs = u_obs.value.trim();
     }
-
+    
     if (CURRENT_USER) {
       USERS = USERS.map((u) => (u.id === CURRENT_USER.id ? data : u));
     } else {
+      data.tempPassword = generateTempPassword();
       USERS.push(data);
     }
 

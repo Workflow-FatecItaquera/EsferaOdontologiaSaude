@@ -51,9 +51,9 @@
     console.warn("[Home] .employees-box não encontrada.");
   }
 
-  // =============================================
-  // APPOINTMENTS (NOVO)
-  // =============================================
+
+
+
   const LS_APPOINTMENTS = "esfera_appointments_v1";
 
   function loadAppointments() {
@@ -67,14 +67,12 @@
     return;
   }
 
-  // pega profissionais pelo id
   function getProfessionalName(id) {
     const users = loadUsers();
     const prof = users.find((u) => u.id == id);
     return prof ? prof.name || "Profissional" : "Desconhecido";
   }
 
-  // Dá um tapa bonito no horário
   function formatTime(isoStr) {
     const date = new Date(isoStr);
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -103,7 +101,6 @@
       const div = document.createElement("div");
       div.className = "appointment-card p-3 rounded mb-3";
 
-      // pega horas formatadas
       const date = new Date(a.datetimeISO);
       const dia = date.toLocaleDateString("pt-BR", {
         day: "2-digit",
@@ -114,7 +111,6 @@
         minute: "2-digit",
       });
 
-      // horário final (opcional — ajusta se tiver duração)
       let horaFim = "";
       if (a.endTimeISO) {
         const end = new Date(a.endTimeISO);
@@ -151,7 +147,6 @@
       year: "numeric",
     });
 
-    // Capitaliza a primeira letra (pq o toLocale vem "novembro")
     const cap = formatted.charAt(0).toUpperCase() + formatted.slice(1);
 
     el.textContent = cap;

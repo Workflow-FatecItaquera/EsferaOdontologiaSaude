@@ -224,8 +224,8 @@ async def cadastrar_usuario(
         cidade = cidade,
         estado = estado,
         complemento = complemento,
-        criado = "",
-        editado = "",
+        criado = "2025-12-07 23:50:12",
+        editado = "2025-12-07 23:50:12",
         inativado = "0"
     )
 
@@ -240,8 +240,8 @@ async def cadastrar_usuario(
         numero_conta = "",
         saldo = 0,
         observacoes = "",
-        criado = "",
-        editado = "",
+        criado = "2025-12-07 23:50:12",
+        editado = "2025-12-07 23:50:12",
         inativado = "0"
     )
 
