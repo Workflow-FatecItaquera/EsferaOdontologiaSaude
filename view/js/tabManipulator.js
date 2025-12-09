@@ -146,12 +146,10 @@ window.addEventListener("load", () => {
   });
 
   const loggedUser = JSON.parse(sessionStorage.getItem("LOGGED_USER"));
-
-  if (!loggedUser) {
-    window.location.href = "/login";
-    return;
+  if(!loggedUser){
+    window.location.href="/login"
   }
-
+  
   const roleEl = document.querySelector(".topbar small");
   const nameEl = document.querySelector(".topbar strong");
   const colorIcon = document.querySelector(".user-circle");

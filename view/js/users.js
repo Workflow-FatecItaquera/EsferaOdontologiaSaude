@@ -441,6 +441,7 @@
       USERS = USERS.map((u) => (u.id === CURRENT_USER.id ? data : u));
     } else {
       data.tempPassword = generateTempPassword();
+      console.log(data)
       USERS.push(data);
     }
 
